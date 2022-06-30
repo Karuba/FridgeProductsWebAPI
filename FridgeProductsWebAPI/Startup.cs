@@ -1,7 +1,11 @@
+using FridgeProductsWebAPI.Extensions.ServiceExtensions;
+using FridgeProductsWebAPI.Models;
+using LoggerService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,7 +30,12 @@ namespace FridgeProductsWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.ConfigureCors();
+            services.ConfigureIISIntegration();
+            services.ConfigureLoggerServices();
+            services.ConfigureSqlContext(Configuration);
+            services.ConfigureRepositoryManager();
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -35,7 +44,7 @@ namespace FridgeProductsWebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
         {
             if (env.IsDevelopment())
             {
@@ -44,7 +53,11 @@ namespace FridgeProductsWebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FridgeProductsWebAPI v1"));
             }
 
+
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseCors("CorsPolicy");
+
 
             app.UseRouting();
 
