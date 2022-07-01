@@ -12,6 +12,7 @@ namespace FridgeProductsWebAPI.Models
         public Guid Id { get; set; }
         [Required(ErrorMessage = "Name is a required field.")]
         public string Name { get; set; }
+
         public int Year { get; set; }
 
         public ICollection<Fridge> Fridges { get; set; }

@@ -4,14 +4,16 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FridgeProductsWebAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20220630130427_AddingData")]
+    partial class AddingData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,13 +132,6 @@ namespace FridgeProductsWebAPI.Migrations
                             FridgeId = new Guid("90abbca8-664d-4b20-b5de-024705497d4a"),
                             ProductId = new Guid("d9d4c053-49b6-410c-bc78-2d54a9991870"),
                             Quantity = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("97dba8c0-d178-41e7-938c-ed49778fb52a"),
-                            FridgeId = new Guid("90abbca8-664d-4b20-b5de-024705497d4a"),
-                            ProductId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            Quantity = 1
                         });
                 });
 

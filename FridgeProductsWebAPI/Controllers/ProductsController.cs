@@ -44,30 +44,71 @@ namespace FridgeProductsWebAPI.Controllers
             }
         }
         [HttpGet]
-        public IActionResult GetProductsForFridge(Guid fridgeId)
-        {
-            try
-            {
-                return Ok(_mapper.Map<IEnumerable<ProductDTO>>(_repository.FridgeProduct.GetProductsForFridge(fridgeId)));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong in the {nameof(GetProductsForFridge)} action {ex}");
-                return Problem("Internal server error");
-            }
-        }
+        public IActionResult GetProductsForFridge(Guid fridgeId) => 
+            Ok(_mapper.Map<IEnumerable<ProductDTO>>(_repository.FridgeProduct.GetProductsForFridge(fridgeId)));
+
         [HttpPost]
-        public IActionResult GetProductsForFridge(Guid fridgeId, [FromBody] )
+        public IActionResult CreateFridgeProduct(Guid fridgeId, [FromBody] FridgeProductForCreationDTO fridgeProduct)
         {
-            try
+            if (_repository.Fridge.GetFridge(fridgeId) == null)
             {
-                return Ok(_mapper.Map<IEnumerable<ProductDTO>>(_repository.FridgeProduct.GetProductsForFridge(fridgeId)));
+                _logger.LogInfo($"Fridge with id: {fridgeId} doesn't exist in the database.");
+                return NotFound();
             }
-            catch (Exception ex)
+            if (fridgeProduct == null)
             {
-                _logger.LogError($"Something went wrong in the {nameof(GetProductsForFridge)} action {ex}");
-                return Problem("Internal server error");
+                _logger.LogError("FridgeProductForCreationDTO object sent from client is null.");
+                return BadRequest("FridgeProductForCreationDTO object is null");
             }
+            if (_repository.Product.GetProduct(fridgeProduct.ProductId) == null)
+            {
+                _logger.LogInfo($"Product with id: {fridgeProduct.ProductId} doesn't exist in the database.");
+                return NotFound();
+            }
+            if (!ModelState.IsValid)
+            {
+                return Unauthorized("FridgeProductForCreationDTO object is invalid");
+            }
+
+            var fridgeProductEntity = _mapper.Map<FridgeProduct>(fridgeProduct);
+
+            fridgeProductEntity.FridgeId = fridgeId;
+
+            if (_repository.FridgeProduct.GetFridgeProduct(fridgeProductEntity.FridgeId, fridgeProductEntity.ProductId) != null)
+            {
+                _logger.LogInfo("Fridge with this product already exist.");
+                return BadRequest("Fridge with this product already exist.");
+            }
+
+            _repository.FridgeProduct.AddProductToFridge(fridgeProductEntity);
+            _repository.Save();
+
+            return Ok();
+
+        }
+        [HttpDelete("{productId}")]
+        public IActionResult DeleteProductFromFridge(Guid fridgeId, Guid productId)
+        {
+            if (_repository.Fridge.GetFridge(fridgeId) == null)
+            {
+                _logger.LogInfo($"Fridge with id: {fridgeId} doesn't exist in the database.");
+                return NotFound();
+            }
+            var fridgeProductEntity = _repository.FridgeProduct.GetFridgeProduct(fridgeId, productId);
+            if (fridgeProductEntity == null)
+            {
+                _logger.LogInfo($"Fridge with id: {fridgeId} is empty.");
+                return NotFound();
+            }
+            if (_repository.FridgeProduct.GetProductsForFridge(productId) == null)
+            {
+                _logger.LogInfo($"Product with id: {productId} doesn't exist in this fridge.");
+                return NotFound();
+            }
+            _repository.FridgeProduct.DeleteProductFromFridge(fridgeProductEntity);
+            _repository.Save();
+
+            return NoContent();
         }
     }
 }

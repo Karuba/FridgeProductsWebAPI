@@ -19,8 +19,13 @@ namespace Entities.Configuration
                     Id = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
                     Name = "Banana",
                     DefaultQuantity = 12
+                },
+                new Product
+                {
+                    Id = new Guid("d9d4c053-49b6-410c-bc78-2d54a9991870"),
+                    Name = "Strawberry",
+                    DefaultQuantity = 20
                 }
-
             );
         }
     }

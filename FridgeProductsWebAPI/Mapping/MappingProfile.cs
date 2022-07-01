@@ -10,6 +10,8 @@ namespace FridgeProductsWebAPI.Mapping
         {
             CreateMap<Product, ProductDTO>();
             CreateMap<Fridge, FridgeDTO>();
+            CreateMap<FridgeProductForCreationDTO, FridgeProduct>();
+            CreateMap<FridgeForUpdatingDTO, Fridge>();
         }
     }
 }

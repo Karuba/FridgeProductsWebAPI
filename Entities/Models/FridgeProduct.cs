@@ -19,7 +19,7 @@ namespace FridgeProductsWebAPI.Models
         public Guid ProductId { get; set; }
         public Product Product { get; set; }
 
-        [Required(ErrorMessage = "Quantity is a required field.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Quantity is required and it can't be lower than 0")]
         public int Quantity { get; set; }
     }
 }
