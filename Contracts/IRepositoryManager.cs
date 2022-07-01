@@ -12,6 +12,6 @@ namespace Contracts
         IFridgeModelRepository FridgeModel { get; }
         IFridgeRepository Fridge { get; }
         IFridgeProductRepository FridgeProduct { get; }
-        void Save();
+        Task SaveAsync();
     }
 }

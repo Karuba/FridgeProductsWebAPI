@@ -31,26 +31,16 @@ namespace FridgeProductsWebAPI.Controllers
         }
         // GET: api/<ValuesController>
         [HttpGet("{id}")]
-        public IActionResult GetAllProducts()
-        {
-            try
-            {
-                return Ok(_mapper.Map<IEnumerable<ProductDTO>>(_repository.Product.GetAllProducts()));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong in the {nameof(GetAllProducts)} action {ex}");
-                return Problem("Internal server error");
-            }
-        }
+        public async Task<IActionResult> GetAllProducts() =>
+                 Ok(_mapper.Map<IEnumerable<ProductDTO>>(await _repository.Product.GetAllProductsAsync()));
         [HttpGet]
         public IActionResult GetProductsForFridge(Guid fridgeId) => 
             Ok(_mapper.Map<IEnumerable<ProductDTO>>(_repository.FridgeProduct.GetProductsForFridge(fridgeId)));
 
         [HttpPost]
-        public IActionResult CreateFridgeProduct(Guid fridgeId, [FromBody] FridgeProductForCreationDTO fridgeProduct)
+        public async Task<IActionResult> CreateFridgeProduct(Guid fridgeId, [FromBody] FridgeProductForCreationDTO fridgeProduct)
         {
-            if (_repository.Fridge.GetFridge(fridgeId) == null)
+            if (await _repository.Fridge.GetFridgeAsync(fridgeId) == null)
             {
                 _logger.LogInfo($"Fridge with id: {fridgeId} doesn't exist in the database.");
                 return NotFound();
@@ -60,7 +50,7 @@ namespace FridgeProductsWebAPI.Controllers
                 _logger.LogError("FridgeProductForCreationDTO object sent from client is null.");
                 return BadRequest("FridgeProductForCreationDTO object is null");
             }
-            if (_repository.Product.GetProduct(fridgeProduct.ProductId) == null)
+            if (await _repository.Product.GetProductAsync(fridgeProduct.ProductId) == null)
             {
                 _logger.LogInfo($"Product with id: {fridgeProduct.ProductId} doesn't exist in the database.");
                 return NotFound();
@@ -74,39 +64,39 @@ namespace FridgeProductsWebAPI.Controllers
 
             fridgeProductEntity.FridgeId = fridgeId;
 
-            if (_repository.FridgeProduct.GetFridgeProduct(fridgeProductEntity.FridgeId, fridgeProductEntity.ProductId) != null)
+            if (await _repository.FridgeProduct.GetFridgeProductAsync(fridgeProductEntity.FridgeId, fridgeProductEntity.ProductId) != null)
             {
                 _logger.LogInfo("Fridge with this product already exist.");
                 return BadRequest("Fridge with this product already exist.");
             }
 
             _repository.FridgeProduct.AddProductToFridge(fridgeProductEntity);
-            _repository.Save();
+            await _repository.SaveAsync();
 
             return Ok();
 
         }
         [HttpDelete("{productId}")]
-        public IActionResult DeleteProductFromFridge(Guid fridgeId, Guid productId)
+        public async Task<IActionResult> DeleteProductFromFridge(Guid fridgeId, Guid productId)
         {
-            if (_repository.Fridge.GetFridge(fridgeId) == null)
+            if (await _repository.Fridge.GetFridgeAsync(fridgeId) == null)
             {
                 _logger.LogInfo($"Fridge with id: {fridgeId} doesn't exist in the database.");
                 return NotFound();
             }
-            var fridgeProductEntity = _repository.FridgeProduct.GetFridgeProduct(fridgeId, productId);
+            var fridgeProductEntity = await _repository.FridgeProduct.GetFridgeProductAsync(fridgeId, productId);
             if (fridgeProductEntity == null)
             {
                 _logger.LogInfo($"Fridge with id: {fridgeId} is empty.");
                 return NotFound();
             }
-            if (_repository.FridgeProduct.GetProductsForFridge(productId) == null)
+            if ( _repository.FridgeProduct.GetProductsForFridge(productId) == null)
             {
                 _logger.LogInfo($"Product with id: {productId} doesn't exist in this fridge.");
                 return NotFound();
             }
             _repository.FridgeProduct.DeleteProductFromFridge(fridgeProductEntity);
-            _repository.Save();
+            await _repository.SaveAsync();
 
             return NoContent();
         }

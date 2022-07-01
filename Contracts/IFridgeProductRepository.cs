@@ -13,8 +13,8 @@ namespace Contracts
         IEnumerable<Product> GetProductsForFridge(Guid fridgeId, bool trackChanges = false);
         void AddProductToFridge(FridgeProduct fridgeProduct);
         void DeleteProductFromFridge(FridgeProduct fridgeProduct);
-        FridgeProduct GetFridgeWithProduct(Guid fridgeId, bool trackChanges = false);
-        FridgeProduct GetFridgeProduct(Guid fridgeId, Guid productId, bool trackChanges = false);
+        Task<FridgeProduct> GetFridgeWithProductAsync(Guid fridgeId, bool trackChanges = false);
+        Task<FridgeProduct> GetFridgeProductAsync(Guid fridgeId, Guid productId, bool trackChanges = false);
         
     }
 }

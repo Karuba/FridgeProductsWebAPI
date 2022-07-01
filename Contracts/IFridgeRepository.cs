@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IFridgeRepository
     {
-        IEnumerable<Fridge> GetAllFridges(bool trackChanges = false);
-        Fridge GetFridge(Guid id, bool trackChanges = false);
+        Task<IEnumerable<Fridge>> GetAllFridgesAsync(bool trackChanges = false);
+        Task<Fridge> GetFridgeAsync(Guid id, bool trackChanges = false);
     }
 }

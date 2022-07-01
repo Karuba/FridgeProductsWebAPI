@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities;
 using FridgeProductsWebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,13 @@ namespace Repository
             : base(repositoryContext)
         {
         }
-        public IEnumerable<Fridge> GetAllFridges(bool trackChanges = false) =>
-            FindAll(trackChanges)
+        public async Task<IEnumerable<Fridge>> GetAllFridgesAsync(bool trackChanges = false) =>
+            await FindAll(trackChanges)
             .OrderBy(e => e.Name)
-            .ToList();
+            .ToListAsync();
 
-        public Fridge GetFridge(Guid id, bool trackChanges = false) =>
-            FindByCondition(opt => opt.Id.Equals(id), trackChanges).SingleOrDefault();
+        public async Task<Fridge> GetFridgeAsync(Guid id, bool trackChanges = false) =>
+            await FindByCondition(opt => opt.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
 
     }
 }

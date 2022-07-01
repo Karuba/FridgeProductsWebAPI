@@ -10,9 +10,7 @@ namespace Contracts
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetAllProducts(bool trackChanges = false);
-        Product GetProduct(Guid id, bool trackChanges = false);
-        //IEnumerable<Product> GetProductsForFridge(Guid fridgeId, bool trackChanges = false);
-        //void CreateProduct(Guid fridgeId, FridgeProductRepository fridgeProduct, bool trackChanges = false);
+        Task<IEnumerable<Product>> GetAllProductsAsync(bool trackChanges = false);
+        Task<Product> GetProductAsync(Guid id, bool trackChanges = false);
     }
 }

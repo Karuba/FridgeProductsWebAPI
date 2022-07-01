@@ -5,6 +5,7 @@ using LoggerService;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FridgeProductsWebAPI.Controllers
 {
@@ -23,20 +24,18 @@ namespace FridgeProductsWebAPI.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public IActionResult GetFridges()
-        {
-           return Ok(_mapper.Map<IEnumerable<FridgeDTO>>(_repository.Fridge.GetAllFridges()));
-        }
+        public async Task<IActionResult> GetFridges() =>
+            Ok(_mapper.Map<IEnumerable<FridgeDTO>>(await _repository.Fridge.GetAllFridgesAsync()));
 
         [HttpPut("{fridgeId}")]
-        public IActionResult UpdateFridge(Guid fridgeId, [FromBody] FridgeForUpdatingDTO fridge)
+        public async Task<IActionResult> UpdateFridge(Guid fridgeId, [FromBody] FridgeForUpdatingDTO fridge)
         {
             if (fridge == null)
             {
                 _logger.LogError("FridgeForUpdatingDTO object sent from client is null.");
                 return BadRequest("FridgeForUpdatingDTO object is null");
             }
-            var fridgeEntity = _repository.Fridge.GetFridge(fridgeId, trackChanges: true);
+            var fridgeEntity = await _repository.Fridge.GetFridgeAsync(fridgeId, trackChanges: true);
             if (fridgeEntity  == null)
             {
                 _logger.LogInfo($"Fridge with id: {fridgeId} doesn't exist in the database.");
@@ -48,7 +47,7 @@ namespace FridgeProductsWebAPI.Controllers
             }
             
             _mapper.Map(fridge, fridgeEntity);
-            _repository.Save();
+            await _repository.SaveAsync();
 
             return NoContent();
         }
