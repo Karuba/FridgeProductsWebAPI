@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities;
 using FridgeProductsWebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,8 @@ namespace Repository
             : base(repositoryContext)
         {
         }
+
+        public async Task<FridgeModel> GetFridgeModel(Guid id, bool trackChanges = false) =>
+            await FindByCondition(opt => opt.Id.Equals(id), trackChanges).FirstOrDefaultAsync();
     }
 }

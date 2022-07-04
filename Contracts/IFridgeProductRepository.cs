@@ -15,6 +15,6 @@ namespace Contracts
         void DeleteProductFromFridge(FridgeProduct fridgeProduct);
         Task<FridgeProduct> GetFridgeWithProductAsync(Guid fridgeId, bool trackChanges = false);
         Task<FridgeProduct> GetFridgeProductAsync(Guid fridgeId, Guid productId, bool trackChanges = false);
-        
+        Task<IEnumerable<FridgeProduct>> GetFridgeProductsForFridgeAsync(Guid fridgeId, bool trackChanges = false);
     }
 }

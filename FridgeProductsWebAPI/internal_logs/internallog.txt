@@ -1654,3 +1654,555 @@
 2022-07-01 12:53:00.9196 Debug FileTarget(Name=logfile): Preparing for new file 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-01_logfile.txt'
 2022-07-01 12:53:00.9196 Debug FileTarget(Name=logfile): Creating file appender: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-01_logfile.txt
 2022-07-01 12:53:00.9320 Trace FileTarget(Name=logfile): Opening C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-01_logfile.txt with allowFileSharedWriting=False
+2022-07-04 11:06:36.9877 Info Message Template Auto Format enabled
+2022-07-04 11:06:37.0233 Debug ScanAssembly('NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-07-04 11:06:37.0877 Debug Setting 'NLog.Targets.FileTarget.name' to 'logfile'
+2022-07-04 11:06:37.0877 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 11:06:37.0998 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 11:06:37.0998 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 11:06:37.0998 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 11:06:37.0998 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 11:06:37.0998 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 11:06:37.0998 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 11:06:37.1133 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 11:06:37.1133 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 11:06:37.1133 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 11:06:37.1133 Info Adding target FileTarget(Name=logfile)
+2022-07-04 11:06:37.1133 Debug Registered target logfile: NLog.Targets.FileTarget
+2022-07-04 11:06:37.1133 Trace ParseRulesElement
+2022-07-04 11:06:37.1381 Debug Watching file-filter 'NLog.config' in directory: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0
+2022-07-04 11:06:37.1381 Debug --- NLog configuration dump ---
+2022-07-04 11:06:37.1381 Debug Targets:
+2022-07-04 11:06:37.1381 Debug FileTarget(Name=logfile)
+2022-07-04 11:06:37.1381 Debug Rules:
+2022-07-04 11:06:37.1452 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2022-07-04 11:06:37.1452 Debug --- End of NLog configuration dump ---
+2022-07-04 11:06:37.1452 Trace FindReachableObject<System.Object>:
+2022-07-04 11:06:37.1452 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2022-07-04 11:06:37.1452 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic
+2022-07-04 11:06:37.1452 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 11:06:37.1452 Trace   Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 11:06:37.1452 Trace   Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 11:06:37.1452 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 11:06:37.1608 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 11:06:37.1608 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 11:06:37.1608 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 11:06:37.1608 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 11:06:37.1608 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 11:06:37.1608 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 11:06:37.1608 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 11:06:37.1608 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 11:06:37.1608 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 11:06:37.1608 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 11:06:37.1608 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 11:06:37.1608 Trace   Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 11:06:37.1608 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic
+2022-07-04 11:06:37.1608 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic
+2022-07-04 11:06:37.1808 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0\NLog.config
+2022-07-04 11:06:37.1808 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2022-07-04 11:06:37.1924 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2022-07-04 11:06:37.1924 Trace Initializing Layout Renderer: ${message}
+2022-07-04 11:06:37.1924 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 11:06:37.1924 Trace Initializing Layout Renderer: ${level}
+2022-07-04 11:06:37.1924 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 11:06:37.1924 Trace Initializing Layout Renderer: ${longdate}
+2022-07-04 11:06:37.1924 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2022-07-04 11:06:37.1924 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 11:06:37.1924 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 11:06:37.1924 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 11:06:37.1924 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 11:06:37.1924 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 11:06:37.1924 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 11:06:37.1924 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 11:06:37.1924 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 11:06:37.2091 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 11:06:37.2091 Trace Initializing Layout Renderer: ${shortdate}
+2022-07-04 11:06:37.2091 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 11:06:37.2091 Trace Initializing C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt
+2022-07-04 11:06:37.2091 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 11:06:37.2091 Trace Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 11:06:37.2091 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 11:06:37.2091 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 11:06:37.2091 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 11:06:37.2091 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 11:06:37.2091 Trace Initializing FileTarget(Name=logfile)
+2022-07-04 11:06:37.2091 Trace FindReachableObject<NLog.Layouts.Layout>:
+2022-07-04 11:06:37.2091 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 11:06:37.2091 Trace  Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 11:06:37.2091 Trace  Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 11:06:37.2091 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 11:06:37.2091 Trace  Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 11:06:37.2091 Trace  Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 11:06:37.2091 Trace FileTarget(Name=logfile) has 2 layouts
+2022-07-04 11:06:37.2091 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2022-07-04 11:06:37.2265 Info Configuration initialized.
+2022-07-04 11:06:37.2430 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.1.1159. Product version: 5.0.1+a3718b8417284a90b0f73b2cbba47bc4067f6a3a. GlobalAssemblyCache: False
+2022-07-04 11:06:37.2430 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2022-07-04 11:06:37.2430 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2022-07-04 11:06:37.2430 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2022-07-04 11:06:37.2430 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2022-07-04 11:06:37.2430 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2022-07-04 11:06:37.2430 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2022-07-04 11:06:37.2750 Debug FileTarget(Name=logfile): Preparing for new file 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt'
+2022-07-04 11:06:37.2750 Debug FileTarget(Name=logfile): Creating file appender: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt
+2022-07-04 11:06:37.2856 Trace FileTarget(Name=logfile): Opening C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt with allowFileSharedWriting=False
+2022-07-04 12:13:42.3416 Info Message Template Auto Format enabled
+2022-07-04 12:13:42.3876 Debug ScanAssembly('NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-07-04 12:13:42.4605 Debug Setting 'NLog.Targets.FileTarget.name' to 'logfile'
+2022-07-04 12:13:42.4605 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 12:13:42.4605 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:13:42.4776 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 12:13:42.4776 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 12:13:42.4776 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:13:42.4776 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 12:13:42.4967 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:13:42.4967 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 12:13:42.4967 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:13:42.4967 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 12:13:42.4967 Info Adding target FileTarget(Name=logfile)
+2022-07-04 12:13:42.5039 Debug Registered target logfile: NLog.Targets.FileTarget
+2022-07-04 12:13:42.5039 Trace ParseRulesElement
+2022-07-04 12:13:42.5308 Debug Watching file-filter 'NLog.config' in directory: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0
+2022-07-04 12:13:42.5308 Debug --- NLog configuration dump ---
+2022-07-04 12:13:42.5308 Debug Targets:
+2022-07-04 12:13:42.5353 Debug FileTarget(Name=logfile)
+2022-07-04 12:13:42.5353 Debug Rules:
+2022-07-04 12:13:42.5353 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2022-07-04 12:13:42.5353 Debug --- End of NLog configuration dump ---
+2022-07-04 12:13:42.5353 Trace FindReachableObject<System.Object>:
+2022-07-04 12:13:42.5353 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2022-07-04 12:13:42.5353 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic
+2022-07-04 12:13:42.5524 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 12:13:42.5524 Trace   Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 12:13:42.5524 Trace   Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 12:13:42.5524 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 12:13:42.5524 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:13:42.5524 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 12:13:42.5524 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:13:42.5524 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 12:13:42.5524 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 12:13:42.5524 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 12:13:42.5524 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 12:13:42.5524 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:13:42.5524 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 12:13:42.5524 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:13:42.5524 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 12:13:42.5524 Trace   Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 12:13:42.5524 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic
+2022-07-04 12:13:42.5670 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic
+2022-07-04 12:13:42.5670 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0\NLog.config
+2022-07-04 12:13:42.5670 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2022-07-04 12:13:42.5670 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2022-07-04 12:13:42.5670 Trace Initializing Layout Renderer: ${message}
+2022-07-04 12:13:42.5670 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 12:13:42.5670 Trace Initializing Layout Renderer: ${level}
+2022-07-04 12:13:42.5670 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 12:13:42.5820 Trace Initializing Layout Renderer: ${longdate}
+2022-07-04 12:13:42.5820 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2022-07-04 12:13:42.5820 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:13:42.5820 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 12:13:42.5820 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 12:13:42.5820 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 12:13:42.5820 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:13:42.5820 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 12:13:42.5820 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:13:42.5820 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 12:13:42.5820 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 12:13:42.5820 Trace Initializing Layout Renderer: ${shortdate}
+2022-07-04 12:13:42.5820 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 12:13:42.5820 Trace Initializing C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt
+2022-07-04 12:13:42.5820 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:13:42.5820 Trace Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 12:13:42.5988 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 12:13:42.5988 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:13:42.5988 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 12:13:42.5988 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:13:42.5988 Trace Initializing FileTarget(Name=logfile)
+2022-07-04 12:13:42.5988 Trace FindReachableObject<NLog.Layouts.Layout>:
+2022-07-04 12:13:42.5988 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 12:13:42.5988 Trace  Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 12:13:42.5988 Trace  Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 12:13:42.5988 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 12:13:42.5988 Trace  Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 12:13:42.5988 Trace  Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 12:13:42.5988 Trace FileTarget(Name=logfile) has 2 layouts
+2022-07-04 12:13:42.5988 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2022-07-04 12:13:42.6147 Info Configuration initialized.
+2022-07-04 12:13:42.6313 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.1.1159. Product version: 5.0.1+a3718b8417284a90b0f73b2cbba47bc4067f6a3a. GlobalAssemblyCache: False
+2022-07-04 12:13:42.6313 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2022-07-04 12:13:42.6313 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2022-07-04 12:13:42.6313 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2022-07-04 12:13:42.6313 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2022-07-04 12:13:42.6313 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2022-07-04 12:13:42.6313 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2022-07-04 12:13:42.6693 Debug FileTarget(Name=logfile): Preparing for new file 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt'
+2022-07-04 12:13:42.6863 Debug FileTarget(Name=logfile): Creating file appender: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt
+2022-07-04 12:13:42.6863 Trace FileTarget(Name=logfile): Opening C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt with allowFileSharedWriting=False
+2022-07-04 12:16:15.4328 Info Message Template Auto Format enabled
+2022-07-04 12:16:15.4640 Debug ScanAssembly('NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-07-04 12:16:15.5232 Debug Setting 'NLog.Targets.FileTarget.name' to 'logfile'
+2022-07-04 12:16:15.5232 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 12:16:15.5361 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:16:15.5361 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 12:16:15.5361 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 12:16:15.5361 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:16:15.5361 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 12:16:15.5361 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:16:15.5361 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 12:16:15.5509 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:16:15.5509 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 12:16:15.5509 Info Adding target FileTarget(Name=logfile)
+2022-07-04 12:16:15.5509 Debug Registered target logfile: NLog.Targets.FileTarget
+2022-07-04 12:16:15.5509 Trace ParseRulesElement
+2022-07-04 12:16:15.5742 Debug Watching file-filter 'NLog.config' in directory: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0
+2022-07-04 12:16:15.5742 Debug --- NLog configuration dump ---
+2022-07-04 12:16:15.5742 Debug Targets:
+2022-07-04 12:16:15.5742 Debug FileTarget(Name=logfile)
+2022-07-04 12:16:15.5742 Debug Rules:
+2022-07-04 12:16:15.5742 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2022-07-04 12:16:15.5742 Debug --- End of NLog configuration dump ---
+2022-07-04 12:16:15.5851 Trace FindReachableObject<System.Object>:
+2022-07-04 12:16:15.5851 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2022-07-04 12:16:15.5851 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic
+2022-07-04 12:16:15.5851 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 12:16:15.5851 Trace   Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 12:16:15.5851 Trace   Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 12:16:15.5851 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 12:16:15.5851 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:16:15.5851 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 12:16:15.5851 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:16:15.5977 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 12:16:15.5977 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 12:16:15.5977 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 12:16:15.5977 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 12:16:15.5977 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:16:15.5977 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 12:16:15.5977 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:16:15.5977 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 12:16:15.5977 Trace   Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 12:16:15.5977 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic
+2022-07-04 12:16:15.5977 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic
+2022-07-04 12:16:15.5977 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0\NLog.config
+2022-07-04 12:16:15.5977 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2022-07-04 12:16:15.6144 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2022-07-04 12:16:15.6144 Trace Initializing Layout Renderer: ${message}
+2022-07-04 12:16:15.6144 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 12:16:15.6144 Trace Initializing Layout Renderer: ${level}
+2022-07-04 12:16:15.6144 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 12:16:15.6144 Trace Initializing Layout Renderer: ${longdate}
+2022-07-04 12:16:15.6144 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2022-07-04 12:16:15.6144 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:16:15.6144 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 12:16:15.6144 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 12:16:15.6144 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 12:16:15.6144 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:16:15.6144 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 12:16:15.6144 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:16:15.6144 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 12:16:15.6297 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 12:16:15.6297 Trace Initializing Layout Renderer: ${shortdate}
+2022-07-04 12:16:15.6297 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 12:16:15.6297 Trace Initializing C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt
+2022-07-04 12:16:15.6297 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 12:16:15.6297 Trace Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 12:16:15.6297 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 12:16:15.6297 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:16:15.6297 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 12:16:15.6297 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 12:16:15.6297 Trace Initializing FileTarget(Name=logfile)
+2022-07-04 12:16:15.6297 Trace FindReachableObject<NLog.Layouts.Layout>:
+2022-07-04 12:16:15.6297 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 12:16:15.6446 Trace  Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 12:16:15.6446 Trace  Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 12:16:15.6446 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 12:16:15.6446 Trace  Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 12:16:15.6446 Trace  Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 12:16:15.6446 Trace FileTarget(Name=logfile) has 2 layouts
+2022-07-04 12:16:15.6446 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2022-07-04 12:16:15.6446 Info Configuration initialized.
+2022-07-04 12:16:15.6695 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.1.1159. Product version: 5.0.1+a3718b8417284a90b0f73b2cbba47bc4067f6a3a. GlobalAssemblyCache: False
+2022-07-04 12:16:15.6695 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2022-07-04 12:16:15.6695 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2022-07-04 12:16:15.6695 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2022-07-04 12:16:15.6768 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2022-07-04 12:16:15.6768 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2022-07-04 12:16:15.6768 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2022-07-04 12:16:15.7009 Debug FileTarget(Name=logfile): Preparing for new file 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt'
+2022-07-04 12:16:15.7092 Debug FileTarget(Name=logfile): Creating file appender: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt
+2022-07-04 12:16:15.7092 Trace FileTarget(Name=logfile): Opening C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt with allowFileSharedWriting=False
+2022-07-04 13:20:19.4931 Info Message Template Auto Format enabled
+2022-07-04 13:20:19.5180 Debug ScanAssembly('NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-07-04 13:20:19.5573 Debug Setting 'NLog.Targets.FileTarget.name' to 'logfile'
+2022-07-04 13:20:19.5573 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:20:19.5685 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:20:19.5685 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:20:19.5685 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:20:19.5685 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:20:19.5685 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:20:19.5685 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:20:19.5685 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:20:19.5685 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:20:19.5685 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:20:19.5685 Info Adding target FileTarget(Name=logfile)
+2022-07-04 13:20:19.5685 Debug Registered target logfile: NLog.Targets.FileTarget
+2022-07-04 13:20:19.5685 Trace ParseRulesElement
+2022-07-04 13:20:19.5927 Debug Watching file-filter 'NLog.config' in directory: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0
+2022-07-04 13:20:19.5927 Debug --- NLog configuration dump ---
+2022-07-04 13:20:19.5927 Debug Targets:
+2022-07-04 13:20:19.5927 Debug FileTarget(Name=logfile)
+2022-07-04 13:20:19.5927 Debug Rules:
+2022-07-04 13:20:19.5982 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2022-07-04 13:20:19.5982 Debug --- End of NLog configuration dump ---
+2022-07-04 13:20:19.5982 Trace FindReachableObject<System.Object>:
+2022-07-04 13:20:19.5982 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2022-07-04 13:20:19.5982 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic
+2022-07-04 13:20:19.5982 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 13:20:19.5982 Trace   Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 13:20:19.5982 Trace   Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:20:19.5982 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:20:19.5982 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:20:19.5982 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:20:19.5982 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:20:19.5982 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 13:20:19.6134 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:20:19.6134 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:20:19.6134 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:20:19.6134 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:20:19.6134 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:20:19.6134 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:20:19.6134 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:20:19.6134 Trace   Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 13:20:19.6134 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic
+2022-07-04 13:20:19.6134 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic
+2022-07-04 13:20:19.6134 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0\NLog.config
+2022-07-04 13:20:19.6134 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2022-07-04 13:20:19.6296 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2022-07-04 13:20:19.6296 Trace Initializing Layout Renderer: ${message}
+2022-07-04 13:20:19.6296 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:20:19.6296 Trace Initializing Layout Renderer: ${level}
+2022-07-04 13:20:19.6296 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:20:19.6296 Trace Initializing Layout Renderer: ${longdate}
+2022-07-04 13:20:19.6296 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2022-07-04 13:20:19.6296 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:20:19.6296 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:20:19.6296 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:20:19.6296 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:20:19.6296 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:20:19.6296 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:20:19.6296 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:20:19.6296 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:20:19.6296 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:20:19.6296 Trace Initializing Layout Renderer: ${shortdate}
+2022-07-04 13:20:19.6296 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:20:19.6296 Trace Initializing C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt
+2022-07-04 13:20:19.6296 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:20:19.6296 Trace Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:20:19.6296 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:20:19.6296 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:20:19.6445 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:20:19.6445 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:20:19.6445 Trace Initializing FileTarget(Name=logfile)
+2022-07-04 13:20:19.6445 Trace FindReachableObject<NLog.Layouts.Layout>:
+2022-07-04 13:20:19.6445 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 13:20:19.6445 Trace  Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 13:20:19.6445 Trace  Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:20:19.6445 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 13:20:19.6445 Trace  Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:20:19.6445 Trace  Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 13:20:19.6445 Trace FileTarget(Name=logfile) has 2 layouts
+2022-07-04 13:20:19.6445 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2022-07-04 13:20:19.6445 Info Configuration initialized.
+2022-07-04 13:20:19.6651 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.1.1159. Product version: 5.0.1+a3718b8417284a90b0f73b2cbba47bc4067f6a3a. GlobalAssemblyCache: False
+2022-07-04 13:20:19.6651 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2022-07-04 13:20:19.6651 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2022-07-04 13:20:19.6651 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2022-07-04 13:20:19.6651 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2022-07-04 13:20:19.6651 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2022-07-04 13:20:19.6651 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2022-07-04 13:20:19.6865 Debug FileTarget(Name=logfile): Preparing for new file 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt'
+2022-07-04 13:20:19.6925 Debug FileTarget(Name=logfile): Creating file appender: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt
+2022-07-04 13:20:19.6925 Trace FileTarget(Name=logfile): Opening C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt with allowFileSharedWriting=False
+2022-07-04 13:26:10.0376 Info Message Template Auto Format enabled
+2022-07-04 13:26:10.0618 Debug ScanAssembly('NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-07-04 13:26:10.1051 Debug Setting 'NLog.Targets.FileTarget.name' to 'logfile'
+2022-07-04 13:26:10.1051 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:26:10.1167 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:26:10.1167 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:26:10.1167 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:26:10.1167 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:26:10.1167 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:26:10.1167 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:26:10.1167 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:26:10.1167 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:26:10.1167 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:26:10.1167 Info Adding target FileTarget(Name=logfile)
+2022-07-04 13:26:10.1167 Debug Registered target logfile: NLog.Targets.FileTarget
+2022-07-04 13:26:10.1296 Trace ParseRulesElement
+2022-07-04 13:26:10.1296 Debug Watching file-filter 'NLog.config' in directory: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0
+2022-07-04 13:26:10.1296 Debug --- NLog configuration dump ---
+2022-07-04 13:26:10.1296 Debug Targets:
+2022-07-04 13:26:10.1463 Debug FileTarget(Name=logfile)
+2022-07-04 13:26:10.1463 Debug Rules:
+2022-07-04 13:26:10.1463 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2022-07-04 13:26:10.1463 Debug --- End of NLog configuration dump ---
+2022-07-04 13:26:10.1463 Trace FindReachableObject<System.Object>:
+2022-07-04 13:26:10.1463 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2022-07-04 13:26:10.1463 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic
+2022-07-04 13:26:10.1463 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 13:26:10.1463 Trace   Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 13:26:10.1463 Trace   Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:26:10.1463 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:26:10.1463 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:26:10.1463 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:26:10.1602 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:26:10.1602 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 13:26:10.1602 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:26:10.1602 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:26:10.1602 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:26:10.1602 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:26:10.1602 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:26:10.1602 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:26:10.1602 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:26:10.1602 Trace   Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 13:26:10.1602 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic
+2022-07-04 13:26:10.1602 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic
+2022-07-04 13:26:10.1602 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0\NLog.config
+2022-07-04 13:26:10.1602 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2022-07-04 13:26:10.1602 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2022-07-04 13:26:10.1602 Trace Initializing Layout Renderer: ${message}
+2022-07-04 13:26:10.1764 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:26:10.1764 Trace Initializing Layout Renderer: ${level}
+2022-07-04 13:26:10.1764 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:26:10.1764 Trace Initializing Layout Renderer: ${longdate}
+2022-07-04 13:26:10.1764 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2022-07-04 13:26:10.1764 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:26:10.1764 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:26:10.1764 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:26:10.1764 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:26:10.1764 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:26:10.1764 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:26:10.1764 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:26:10.1764 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:26:10.1764 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:26:10.1764 Trace Initializing Layout Renderer: ${shortdate}
+2022-07-04 13:26:10.1764 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:26:10.1764 Trace Initializing C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt
+2022-07-04 13:26:10.1764 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:26:10.1764 Trace Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:26:10.1764 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:26:10.1764 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:26:10.1764 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:26:10.1764 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:26:10.1764 Trace Initializing FileTarget(Name=logfile)
+2022-07-04 13:26:10.1764 Trace FindReachableObject<NLog.Layouts.Layout>:
+2022-07-04 13:26:10.1764 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 13:26:10.1922 Trace  Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 13:26:10.1922 Trace  Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:26:10.1922 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 13:26:10.1922 Trace  Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:26:10.1922 Trace  Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 13:26:10.1922 Trace FileTarget(Name=logfile) has 2 layouts
+2022-07-04 13:26:10.1922 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2022-07-04 13:26:10.1922 Info Configuration initialized.
+2022-07-04 13:26:10.2097 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.1.1159. Product version: 5.0.1+a3718b8417284a90b0f73b2cbba47bc4067f6a3a. GlobalAssemblyCache: False
+2022-07-04 13:26:10.2097 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2022-07-04 13:26:10.2097 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2022-07-04 13:26:10.2097 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2022-07-04 13:26:10.2097 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2022-07-04 13:26:10.2097 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2022-07-04 13:26:10.2097 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2022-07-04 13:26:10.2351 Debug FileTarget(Name=logfile): Preparing for new file 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt'
+2022-07-04 13:26:10.2423 Debug FileTarget(Name=logfile): Creating file appender: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt
+2022-07-04 13:26:10.2423 Trace FileTarget(Name=logfile): Opening C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt with allowFileSharedWriting=False
+2022-07-04 13:27:04.5727 Info Message Template Auto Format enabled
+2022-07-04 13:27:04.5976 Debug ScanAssembly('NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-07-04 13:27:04.6396 Debug Setting 'NLog.Targets.FileTarget.name' to 'logfile'
+2022-07-04 13:27:04.6396 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:27:04.6476 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:27:04.6476 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:27:04.6476 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:27:04.6476 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:27:04.6476 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:27:04.6476 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:27:04.6476 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:27:04.6476 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:27:04.6476 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:27:04.6476 Info Adding target FileTarget(Name=logfile)
+2022-07-04 13:27:04.6606 Debug Registered target logfile: NLog.Targets.FileTarget
+2022-07-04 13:27:04.6606 Trace ParseRulesElement
+2022-07-04 13:27:04.6606 Debug Watching file-filter 'NLog.config' in directory: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0
+2022-07-04 13:27:04.6606 Debug --- NLog configuration dump ---
+2022-07-04 13:27:04.6606 Debug Targets:
+2022-07-04 13:27:04.6761 Debug FileTarget(Name=logfile)
+2022-07-04 13:27:04.6761 Debug Rules:
+2022-07-04 13:27:04.6761 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2022-07-04 13:27:04.6761 Debug --- End of NLog configuration dump ---
+2022-07-04 13:27:04.6761 Trace FindReachableObject<System.Object>:
+2022-07-04 13:27:04.6761 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2022-07-04 13:27:04.6761 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic
+2022-07-04 13:27:04.6761 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 13:27:04.6761 Trace   Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 13:27:04.6761 Trace   Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:27:04.6761 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:27:04.6761 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:27:04.6761 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:27:04.6761 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:27:04.6912 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 13:27:04.6912 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:27:04.6912 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:27:04.6912 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:27:04.6912 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:27:04.6912 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:27:04.6912 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:27:04.6912 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:27:04.6912 Trace   Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 13:27:04.6912 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic
+2022-07-04 13:27:04.6912 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic
+2022-07-04 13:27:04.6912 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\bin\Debug\net5.0\NLog.config
+2022-07-04 13:27:04.6912 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2022-07-04 13:27:04.6912 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2022-07-04 13:27:04.6912 Trace Initializing Layout Renderer: ${message}
+2022-07-04 13:27:04.6912 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:27:04.6912 Trace Initializing Layout Renderer: ${level}
+2022-07-04 13:27:04.6912 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:27:04.6912 Trace Initializing Layout Renderer: ${longdate}
+2022-07-04 13:27:04.6912 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2022-07-04 13:27:04.7083 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:27:04.7083 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:27:04.7083 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:27:04.7083 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-07-04 13:27:04.7083 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:27:04.7083 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-07-04 13:27:04.7083 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:27:04.7083 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-07-04 13:27:04.7083 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:27:04.7083 Trace Initializing Layout Renderer: ${shortdate}
+2022-07-04 13:27:04.7083 Trace Initializing Layout Renderer: ${literal}
+2022-07-04 13:27:04.7083 Trace Initializing C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt
+2022-07-04 13:27:04.7083 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-07-04 13:27:04.7083 Trace Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:27:04.7083 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-07-04 13:27:04.7083 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:27:04.7083 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-07-04 13:27:04.7083 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-07-04 13:27:04.7083 Trace Initializing FileTarget(Name=logfile)
+2022-07-04 13:27:04.7083 Trace FindReachableObject<NLog.Layouts.Layout>:
+2022-07-04 13:27:04.7083 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-07-04 13:27:04.7083 Trace  Scanning Property FileName 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-07-04 13:27:04.7083 Trace  Scanning SimpleLayout 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\${shortdate}_logfile.txt'
+2022-07-04 13:27:04.7083 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts
+2022-07-04 13:27:04.7083 Trace  Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2022-07-04 13:27:04.7083 Trace  Scanning Property LineEnding 'Default' NLog.Targets
+2022-07-04 13:27:04.7083 Trace FileTarget(Name=logfile) has 2 layouts
+2022-07-04 13:27:04.7238 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2022-07-04 13:27:04.7238 Info Configuration initialized.
+2022-07-04 13:27:04.7238 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.1.1159. Product version: 5.0.1+a3718b8417284a90b0f73b2cbba47bc4067f6a3a. GlobalAssemblyCache: False
+2022-07-04 13:27:04.7422 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2022-07-04 13:27:04.7422 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2022-07-04 13:27:04.7422 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2022-07-04 13:27:04.7422 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2022-07-04 13:27:04.7422 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2022-07-04 13:27:04.7422 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2022-07-04 13:27:04.7615 Debug FileTarget(Name=logfile): Preparing for new file 'C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt'
+2022-07-04 13:27:04.7615 Debug FileTarget(Name=logfile): Creating file appender: C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt
+2022-07-04 13:27:04.7615 Trace FileTarget(Name=logfile): Opening C:\WorkPlace\University-3-6\my_shit\C#\Innowise\FridgeProductsWebAPI\FridgeProductsWebAPI\logs\2022-07-04_logfile.txt with allowFileSharedWriting=False

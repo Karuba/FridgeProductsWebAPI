@@ -29,13 +29,33 @@ namespace FridgeProductsWebAPI.Controllers
             _repository = repository;
             _mapper = mapper;
         }
-        // GET: api/<ValuesController>
-        [HttpGet("{id}")]
+        [Route("/api/products")]
+        [HttpGet]
         public async Task<IActionResult> GetAllProducts() =>
                  Ok(_mapper.Map<IEnumerable<ProductDTO>>(await _repository.Product.GetAllProductsAsync()));
         [HttpGet]
-        public IActionResult GetProductsForFridge(Guid fridgeId) => 
-            Ok(_mapper.Map<IEnumerable<ProductDTO>>(_repository.FridgeProduct.GetProductsForFridge(fridgeId)));
+        public async Task<IActionResult> GetProductsForFridge(Guid fridgeId)
+        {
+            var fridgeProducts = await _repository.FridgeProduct.GetFridgeProductsForFridgeAsync(fridgeId);
+            var products = 
+                _mapper.Map<IEnumerable<ProductDTO>>(
+                    await _repository.Product.GetProductsAsync(fridgeProducts.Select(x => x.ProductId)));
+
+            var fridgeProductsDto = new List<FridgeProductDTO>();
+
+            foreach (var item in fridgeProducts)
+            {
+                fridgeProductsDto.Add(new FridgeProductDTO
+                {
+                    Id = item.Id,
+                    Quantity = item.Quantity,
+                    Name = products.Where(pr => pr.Id.Equals(item.ProductId)).FirstOrDefault()?.Name,
+                    DefaultQuantity = products.Where(pr => pr.Id.Equals(item.ProductId)).FirstOrDefault()?.DefaultQuantity
+                });
+            }
+
+            return Ok(fridgeProductsDto);
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateFridgeProduct(Guid fridgeId, [FromBody] FridgeProductForCreationDTO fridgeProduct)
@@ -64,20 +84,23 @@ namespace FridgeProductsWebAPI.Controllers
 
             fridgeProductEntity.FridgeId = fridgeId;
 
-            if (await _repository.FridgeProduct.GetFridgeProductAsync(fridgeProductEntity.FridgeId, fridgeProductEntity.ProductId) != null)
-            {
-                _logger.LogInfo("Fridge with this product already exist.");
-                return BadRequest("Fridge with this product already exist.");
-            }
+            var dbFridgeProduct = await _repository.FridgeProduct.GetFridgeProductAsync(fridgeProductEntity.FridgeId, fridgeProductEntity.ProductId, trackChanges: true);
 
-            _repository.FridgeProduct.AddProductToFridge(fridgeProductEntity);
+            if (dbFridgeProduct != null)
+            {
+                dbFridgeProduct.Quantity += fridgeProductEntity.Quantity;
+            }
+            else
+            {
+                _repository.FridgeProduct.AddProductToFridge(fridgeProductEntity);
+            }
             await _repository.SaveAsync();
 
             return Ok();
 
         }
         [HttpDelete("{productId}")]
-        public async Task<IActionResult> DeleteProductFromFridge(Guid fridgeId, Guid productId)
+        public async Task<IActionResult> DeleteProductForFridge(Guid fridgeId, Guid productId)
         {
             if (await _repository.Fridge.GetFridgeAsync(fridgeId) == null)
             {

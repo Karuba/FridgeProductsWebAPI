@@ -24,8 +24,16 @@ namespace FridgeProductsWebAPI.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<IActionResult> GetFridges() =>
-            Ok(_mapper.Map<IEnumerable<FridgeDTO>>(await _repository.Fridge.GetAllFridgesAsync()));
+        public async Task<IActionResult> GetFridges()
+        {
+            var fridges = _mapper.Map<IEnumerable<FridgeDTO>>(await _repository.Fridge.GetAllFridgesAsync());
+            foreach (var fridge in fridges)
+            {
+                var fawe = await _repository.FridgeModel.GetFridgeModel(fridge.FridgeModelId);
+                fridge.FridgeModel = _mapper.Map<FridgeModelDTO>(fawe);
+            }
+            return Ok(fridges);
+        }
 
         [HttpPut("{fridgeId}")]
         public async Task<IActionResult> UpdateFridge(Guid fridgeId, [FromBody] FridgeForUpdatingDTO fridge)

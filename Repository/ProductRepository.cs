@@ -29,6 +29,8 @@ namespace Repository
 
         public async Task<Product> GetProductAsync(Guid id, bool trackChanges = false) =>
             await FindByCondition(opt => opt.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
-            
+
+        public async Task<IEnumerable<Product>> GetProductsAsync(IEnumerable<Guid> fps, bool trackChanges = false) =>
+            await FindByCondition(opt => fps.Contains(opt.Id), trackChanges).ToListAsync();
     }
 }

@@ -4,14 +4,16 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FridgeProductsWebAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20220704093804_AddingMilk")]
+    partial class AddingMilk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,13 +58,6 @@ namespace FridgeProductsWebAPI.Migrations
                             FridgeModelId = new Guid("4d490a70-94ce-4d15-9494-5248280c2ce3"),
                             Name = "Cool",
                             OwnerName = "Michael"
-                        },
-                        new
-                        {
-                            Id = new Guid("91abbca8-664d-4b20-b5de-024705497d4a"),
-                            FridgeModelId = new Guid("5d490a70-94ce-4d15-9494-5248280c2ce3"),
-                            Name = "Frigidaire",
-                            OwnerName = "Arthur"
                         });
                 });
 
@@ -77,7 +72,7 @@ namespace FridgeProductsWebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Year")
+                    b.Property<int>("Year")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -96,11 +91,6 @@ namespace FridgeProductsWebAPI.Migrations
                             Id = new Guid("4d490a70-94ce-4d15-9494-5248280c2ce3"),
                             Name = "Model2",
                             Year = 1994
-                        },
-                        new
-                        {
-                            Id = new Guid("5d490a70-94ce-4d15-9494-5248280c2ce3"),
-                            Name = "Model3"
                         });
                 });
 

@@ -13,7 +13,7 @@ namespace FridgeProductsWebAPI.Models
         [Required(ErrorMessage = "Product name is a required field.")]
         public string Name { get; set; }
 
-        public int DefaultQuantity { get; set; }
+        public int? DefaultQuantity { get; set; }
         
         public ICollection<FridgeProduct> FridgeProducts { get; set; }
     }

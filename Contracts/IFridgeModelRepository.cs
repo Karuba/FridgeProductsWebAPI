@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FridgeProductsWebAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Contracts
 {
     public interface IFridgeModelRepository
     {
+        Task<FridgeModel> GetFridgeModel(Guid id, bool trackChanges = false);
     }
 }

@@ -29,6 +29,9 @@ namespace Repository
             await FindByCondition(e => e.FridgeId.Equals(fridgeId), trackChanges)
                 .SingleOrDefaultAsync(opt => opt.ProductId.Equals(productId));
 
+        public async Task<IEnumerable<FridgeProduct>> GetFridgeProductsForFridgeAsync(Guid fridgeId, bool trackChanges = false) =>
+            await FindByCondition(e => e.FridgeId.Equals(fridgeId), trackChanges).ToListAsync();
+
         public async Task<FridgeProduct> GetFridgeWithProductAsync(Guid fridgeId, bool trackChanges = false) =>
             await FindByCondition(opt => opt.FridgeId.Equals(fridgeId), trackChanges).SingleOrDefaultAsync();
 
