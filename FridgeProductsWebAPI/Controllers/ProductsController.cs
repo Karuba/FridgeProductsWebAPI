@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace FridgeProductsWebAPI.Controllers
 {
@@ -32,7 +31,7 @@ namespace FridgeProductsWebAPI.Controllers
         [Route("/api/products")]
         [HttpGet]
         public async Task<IActionResult> GetAllProducts() =>
-                 Ok(_mapper.Map<IEnumerable<ProductDTO>>(await _repository.Product.GetAllProductsAsync()));
+                 Ok(_mapper.Map<IEnumerable<ProductDTO>>(await _repository.Product.GetAllProductsAsync()));        
         [HttpGet]
         public async Task<IActionResult> GetProductsForFridge(Guid fridgeId)
         {

@@ -34,7 +34,6 @@ namespace FridgeProductsWebAPI.Controllers
             }
             return Ok(fridges);
         }
-
         [HttpPut("{fridgeId}")]
         public async Task<IActionResult> UpdateFridge(Guid fridgeId, [FromBody] FridgeForUpdatingDTO fridge)
         {
