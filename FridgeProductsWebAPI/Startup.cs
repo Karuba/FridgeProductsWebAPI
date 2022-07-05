@@ -56,7 +56,7 @@ namespace FridgeProductsWebAPI
             {
                 app.UseHsts();
             }
-            app.ConfigureExceptionHandler(logger);
+            //app.ConfigureExceptionHandler(logger); edit path to "nlog.config" file
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.DataTransferObjects;
+using Entities.RequestFeatures;
 using LoggerService;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,9 +25,9 @@ namespace FridgeProductsWebAPI.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<IActionResult> GetFridges()
+        public async Task<IActionResult> GetFridgesAsync([FromQuery] FridgeParameters fridgeParameters)
         {
-            var fridges = _mapper.Map<IEnumerable<FridgeDTO>>(await _repository.Fridge.GetAllFridgesAsync());
+            var fridges = _mapper.Map<IEnumerable<FridgeDTO>>(await _repository.Fridge.GetFridgesAsync(fridgeParameters));
             foreach (var fridge in fridges)
             {
                 var fawe = await _repository.FridgeModel.GetFridgeModel(fridge.FridgeModelId);
@@ -35,7 +36,7 @@ namespace FridgeProductsWebAPI.Controllers
             return Ok(fridges);
         }
         [HttpPut("{fridgeId}")]
-        public async Task<IActionResult> UpdateFridge(Guid fridgeId, [FromBody] FridgeForUpdatingDTO fridge)
+        public async Task<IActionResult> UpdateFridgeAsync(Guid fridgeId, [FromBody] FridgeForUpdatingDTO fridge)
         {
             if (fridge == null)
             {

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Contracts;
+using Entities;
 using Entities.DataTransferObjects;
 using FridgeProductsWebAPI.Models;
 using LoggerService;
@@ -18,22 +19,42 @@ namespace FridgeProductsWebAPI.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private readonly RepositoryContext _context;
         private ILoggerManager _logger;
         private readonly IRepositoryManager _repository;
         private readonly IMapper _mapper;
 
-        public ProductsController(ILoggerManager logger, IRepositoryManager repository, IMapper mapper)
+        public ProductsController(RepositoryContext context, ILoggerManager logger, IRepositoryManager repository, IMapper mapper)
         {
+            _context = context;
             _logger = logger;
             _repository = repository;
             _mapper = mapper;
         }
+        [Route("/api/fridgeproducts")]
+        [HttpPut]
+        public async Task<IActionResult> FillEmptyFridgesAsync()
+        {
+            string StoreProc = "exec FillingNullFields ";
+            var fridgeProducts = await _context.FridgeProducts.FromSqlRaw(StoreProc).ToListAsync();
+
+            foreach (var item in fridgeProducts)
+            {
+                FridgeProductForCreationDTO fridgeProduct = new FridgeProductForCreationDTO
+                {
+                    ProductId = item.ProductId,
+                    Quantity = (await _repository.Product.GetProductAsync(item.ProductId))?.DefaultQuantity ?? 0,
+                };
+                await CreateFridgeProductAsync(item.FridgeId, fridgeProduct);
+            }
+            return Ok();
+        }
         [Route("/api/products")]
         [HttpGet]
-        public async Task<IActionResult> GetAllProducts() =>
+        public async Task<IActionResult> GetAllProductsAsync() =>
                  Ok(_mapper.Map<IEnumerable<ProductDTO>>(await _repository.Product.GetAllProductsAsync()));        
         [HttpGet]
-        public async Task<IActionResult> GetProductsForFridge(Guid fridgeId)
+        public async Task<IActionResult> GetProductsForFridgeAsync(Guid fridgeId)
         {
             var fridgeProducts = await _repository.FridgeProduct.GetFridgeProductsForFridgeAsync(fridgeId);
             var products = 
@@ -57,7 +78,7 @@ namespace FridgeProductsWebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateFridgeProduct(Guid fridgeId, [FromBody] FridgeProductForCreationDTO fridgeProduct)
+        public async Task<IActionResult> CreateFridgeProductAsync(Guid fridgeId, [FromBody] FridgeProductForCreationDTO fridgeProduct)
         {
             if (await _repository.Fridge.GetFridgeAsync(fridgeId) == null)
             {
@@ -99,7 +120,7 @@ namespace FridgeProductsWebAPI.Controllers
 
         }
         [HttpDelete("{productId}")]
-        public async Task<IActionResult> DeleteProductForFridge(Guid fridgeId, Guid productId)
+        public async Task<IActionResult> DeleteProductForFridgeAsync(Guid fridgeId, Guid productId)
         {
             if (await _repository.Fridge.GetFridgeAsync(fridgeId) == null)
             {

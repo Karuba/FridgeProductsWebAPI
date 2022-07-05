@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "6271b445-780d-4c72-95aa-ead59d2887fa",
+		"name": "Fridges&Products Request Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21634039"
+	},
+	"item": [
+		{
+			"name": "GetProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFridgesWithPagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/fridges?PageNumber=1&PageSize=10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"fridges"
+					],
+					"query": [
+						{
+							"key": "PageNumber",
+							"value": "1"
+						},
+						{
+							"key": "PageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateFridgeWithId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Atlant\",\r\n    \"ownerName\": \"Kirill\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44340/api/fridges/80abbca8-664d-4b20-b5de-024705497d4a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"fridges",
+						"80abbca8-664d-4b20-b5de-024705497d4a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FillFridgeWithZeroQuantity",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/fridgeproducts",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"fridgeproducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProductsForFridgeId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/fridges/80abbca8-664d-4b20-b5de-024705497d4a/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"fridges",
+						"80abbca8-664d-4b20-b5de-024705497d4a",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddProductForFridge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": \"c9d4c053-49b6-410c-bc78-2d54a9991870\",\r\n    \"quantity\": 11\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44340/api/fridges/80abbca8-664d-4b20-b5de-024705497d4a/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"fridges",
+						"80abbca8-664d-4b20-b5de-024705497d4a",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProductFromFridge",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/fridges/80abbca8-664d-4b20-b5de-024705497d4a/products/c9d4c053-49b6-410c-bc78-2d54a9991870",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"fridges",
+						"80abbca8-664d-4b20-b5de-024705497d4a",
+						"products",
+						"c9d4c053-49b6-410c-bc78-2d54a9991870"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using Entities;
+using Entities.RequestFeatures;
 using FridgeProductsWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,5 +25,11 @@ namespace Repository
         public async Task<Fridge> GetFridgeAsync(Guid id, bool trackChanges = false) =>
             await FindByCondition(opt => opt.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
 
+        public async Task<IEnumerable<Fridge>> GetFridgesAsync(FridgeParameters fridgeParameters, bool trackChanges = false) =>
+            await FindAll(trackChanges)
+            .OrderBy(e => e.Name)
+            .Skip((fridgeParameters.PageNumber - 1) * fridgeParameters.PageSize)
+            .Take(fridgeParameters.PageSize)
+            .ToListAsync();
     }
 }
