@@ -1,50 +1,47 @@
 using FridgeProductsWebAPI.Extensions.ServiceExtensions;
-using FridgeProductsWebAPI.Models;
-using LoggerService;
+using FridgeProductsWebAPI.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Services.Abstractions;
+using AutoMapper;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection.Metadata;
+using Contracts.Mapping;
 
 namespace FridgeProductsWebAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigureCors();
-            services.ConfigureIISIntegration();
-            services.ConfigureLoggerServices();
-            services.ConfigureSqlContext(Configuration);
-            services.ConfigureRepositoryManager();
-            services.AddAutoMapper(typeof(Startup));
-            services.AddControllers();
+            services.AddControllers()
+                .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FridgeProductsWebAPI", Version = "v1" });
             });
+
+
+            services.ConfigureCors();
+            services.ConfigureIISIntegration();
+
+            services.ConfigureServiceManager();
+            services.ConfigureSqlContext(Configuration);
+            services.ConfigureRepositoryManager();
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
+            services.ConfigureExceptionHandlerMiddleware();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -56,21 +53,18 @@ namespace FridgeProductsWebAPI
             {
                 app.UseHsts();
             }
-            //app.ConfigureExceptionHandler(logger); edit path to "nlog.config" file
+
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseCors("CorsPolicy");
 
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

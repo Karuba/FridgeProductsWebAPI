@@ -1,11 +1,13 @@
-﻿using Contracts;
-using Entities;
-using LoggerService;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Repository;
+using Services;
+using Domain.Repositories;
+using Persistence.Repositories;
+using Persistence;
+using FridgeProductsWebAPI.Middleware;
+using Services.Abstractions;
 
 namespace FridgeProductsWebAPI.Extensions.ServiceExtensions
 {
@@ -24,14 +26,16 @@ namespace FridgeProductsWebAPI.Extensions.ServiceExtensions
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
-        public static void ConfigureLoggerServices(this IServiceCollection services) =>
-            services.AddScoped<ILoggerManager, LoggerManager>();
+        public static void ConfigureServiceManager(this IServiceCollection services) =>
+            services.AddScoped<IServiceManager, ServiceManager>(); 
         public static void ConfigureSqlContext(this IServiceCollection services,
             IConfiguration configuration) =>
                 services.AddDbContext<RepositoryContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("MsSQLConnection"), b =>
-                        b.MigrationsAssembly("FridgeProductsWebAPI")));
+                        b.MigrationsAssembly("Infrastructure.Persistence")));
         public static void ConfigureRepositoryManager(this IServiceCollection services) =>
             services.AddScoped<IRepositoryManager, RepositoryManager>();
+        public static void ConfigureExceptionHandlerMiddleware(this IServiceCollection services) =>
+            services.AddTransient<ExceptionHandlingMiddleware>();
     }
 }

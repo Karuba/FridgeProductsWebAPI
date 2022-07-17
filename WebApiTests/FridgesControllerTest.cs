@@ -1,106 +1,100 @@
 using AutoMapper;
 using Contracts;
-using Entities;
-using Entities.DataTransferObjects;
+using Domain.RequestFeatures;
 using FridgeProductsWebAPI.Controllers;
-using FridgeProductsWebAPI.Mapping;
-using FridgeProductsWebAPI.Models;
-using LoggerService;
 using Microsoft.AspNetCore.Mvc;
-using Repository;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApiTests.Mocks;
-using Xunit;
 
 namespace WebApiTests
 {
+    [TestClass]
     public class FridgesControllerTest
     {
-        private readonly IMapper _mapper;
 
-        public FridgesControllerTest()
+        [TestMethod]
+        public async Task GetFridgesAsync_ShouldReturnOk_NoData()
         {
-            var mappingConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new MappingProfile());
-            });
-            _mapper = mappingConfig.CreateMapper();
+            var fakeService = new FakeServiceManager();
+            fakeService.Mock.Setup(s => s.fridgeService.GetFridgesAsync(new FridgeParameters()))
+                .Returns(Task.FromResult(
+                    Enumerable.Empty<FridgeDTO>()));
+
+            FridgesController controller = new FridgesController(fakeService.serviceManager);
+
+            var response = await controller.GetFridgesAsync(new FridgeParameters());
+
+            Assert.IsNotNull(response);
+            Assert.IsInstanceOfType(response, typeof(OkObjectResult));
+
+            var okResult = response as OkObjectResult;
+
+            Assert.AreEqual(200, okResult.StatusCode);
+
+            Assert.IsNotNull(okResult.Value);
+            Assert.IsInstanceOfType(okResult.Value, typeof(IEnumerable<FridgeDTO>));
+
+            var fridges = okResult.Value as IEnumerable<FridgeDTO>;
+
+            Assert.IsNotNull(fridges);
         }
 
-        [Fact]
-        public async Task GetFridgesAsync_ShiouldReturnOk_WithData()
+        [TestMethod]
+        public async Task GetFridgesAsync_ShouldReturnOk_WithData()
         {
-            var fakeRepository = new FakeRepositoryManager();
-            fakeRepository.Mock.Setup(s => s.Fridge.GetAllFridgesAsync(false))
-                .Returns(Task.FromResult(GetFridges()));
-            fakeRepository.Mock.Setup(s => s.FridgeModel.GetFridgeModel(new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), false))
-               .Returns(Task.FromResult(GetFridgeModel(new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"))));
-            FridgesController controller = new FridgesController(null, fakeRepository.Repository, _mapper);
+            var fakeService = new FakeServiceManager();
 
-            var response = await controller.GetFridgesAsync() as OkObjectResult;
+            fakeService.Mock.Setup(s => s.fridgeService.GetFridgesAsync(new FridgeParameters { PageNumber = 1, PageSize = 1}))
+                .Returns((FridgeParameters parameters) => Task.FromResult( GetSingleFridge() ));    // Action 1
 
-            Assert.NotNull(response);
-            var items = Assert.IsType<List<FridgeDTO>>(response.Value);
-            Assert.Equal(GetFridges().Count(), items.Count);
+            FridgesController controller = new FridgesController(fakeService.serviceManager);
 
+            var response = await controller
+                .GetFridgesAsync(new FridgeParameters { PageNumber = 1, PageSize = 1 }); // Note: return an empty instance, but it is defined using an object from the method (Action 1)
+
+            Assert.IsNotNull(response);
+            Assert.IsInstanceOfType(response, typeof(OkObjectResult));
+
+            var okResult = response as OkObjectResult;
+
+            Assert.AreEqual(200, okResult.StatusCode);
+
+            Assert.IsNotNull(okResult.Value);
+            Assert.IsInstanceOfType(okResult.Value, typeof(IEnumerable<FridgeDTO>));
+
+            var fridges = okResult.Value as IEnumerable<FridgeDTO>;
+
+            Assert.IsNotNull(fridges);
+
+            Assert.AreEqual(1, fridges.Count());
+
+            Assert.IsNotNull(fridges.First());
+            Assert.AreEqual("Atlant", fridges.First().Name);
+            Assert.AreEqual("Kirill", fridges.First().OwnerName);
         }
-        private IEnumerable<Fridge> GetFridges()
+
+        private IEnumerable<FridgeDTO> GetSingleFridge()
         {
-            List<Fridge> fridges = new List<Fridge>
+            var fridge = new List<FridgeDTO>
             {
-                new Fridge
+                new FridgeDTO
                 {
                     Id = new Guid("80abbca8-664d-4b20-b5de-024705497d4a"),
                     FridgeModelId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
                     Name = "Atlant",
-                    OwnerName = "Kirill"
-                },
-                new Fridge
-                {
-                    Id = new Guid("90abbca8-664d-4b20-b5de-024705497d4a"),
-                    FridgeModelId = new Guid("4d490a70-94ce-4d15-9494-5248280c2ce3"),
-                    Name = "Cool",
-                    OwnerName = "Michael"
-                },
-                new Fridge
-                {
-                    Id = new Guid("91abbca8-664d-4b20-b5de-024705497d4a"),
-                    FridgeModelId = new Guid("5d490a70-94ce-4d15-9494-5248280c2ce3"),
-                    Name = "Frigidaire",
-                    OwnerName = "Arthur"
+                    OwnerName = "Kirill",
+                    FridgeModel = new FridgeModelDTO
+                    {
+                        Name = "Model1",
+                        Year = 1990
+                    }
                 }
             };
-            return fridges;
+            return fridge;            
         }
-        private FridgeModel GetFridgeModel(Guid id)
-        {
-            List<FridgeModel> fridgeModels = new List<FridgeModel>
-            {
-                new FridgeModel
-                {
-                    Id = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
-                    Name = "Model1",
-                    Year = 1990
-                },
-                new FridgeModel
-                {
-                    Id = new Guid("4d490a70-94ce-4d15-9494-5248280c2ce3"),
-                    Name = "Model2",
-                    Year = 1994
-                },
-                new FridgeModel
-                {
-                    Id = new Guid("5d490a70-94ce-4d15-9494-5248280c2ce3"),
-                    Name = "Model3",
-                    Year = null
-                }
-            };
-            return fridgeModels.Where(opt => opt.Id.Equals(id)).SingleOrDefault();
-        }
-
-
     }
 }
