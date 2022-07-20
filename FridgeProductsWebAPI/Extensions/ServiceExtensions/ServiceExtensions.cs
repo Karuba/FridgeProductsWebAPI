@@ -32,7 +32,7 @@ namespace FridgeProductsWebAPI.Extensions.ServiceExtensions
             IConfiguration configuration) =>
                 services.AddDbContext<RepositoryContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("MsSQLConnection"), b =>
-                        b.MigrationsAssembly("Infrastructure.Persistence")));
+                        b.MigrationsAssembly("FridgeProducts.Infrastructure.Migration")));
         public static void ConfigureRepositoryManager(this IServiceCollection services) =>
             services.AddScoped<IRepositoryManager, RepositoryManager>();
         public static void ConfigureExceptionHandlerMiddleware(this IServiceCollection services) =>

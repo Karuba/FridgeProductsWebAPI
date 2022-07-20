@@ -1,5 +1,4 @@
-﻿using Domain.Repositories;
-using Moq;
+﻿using Moq;
 using Services.Abstractions;
 
 namespace WebApiTests.Mocks

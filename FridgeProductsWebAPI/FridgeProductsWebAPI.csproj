@@ -18,9 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FridgeProducts.Infrastructure.Migration\FridgeProducts.Infrastructure.Migration.csproj" />
     <ProjectReference Include="..\Persistence\FridgeProducts.Infrastructure.Data.csproj" />
     <ProjectReference Include="..\Presentation\FridgeProducts.Presentation.Controllers.csproj" />
     <ProjectReference Include="..\Services\FridgeProducts.Infrastructure.Business.csproj" />
+	  <ProjectReference Include="..\Services\FridgeProducts.Infrastructure.Business.csproj" />
   </ItemGroup>
 
 </Project>
