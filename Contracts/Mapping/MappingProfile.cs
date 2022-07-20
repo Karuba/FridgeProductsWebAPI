@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Domain.Entities;
+using FridgeProducts.Domain.Core.Entities;
 
-namespace Contracts.Mapping
+namespace FridgeProducts.Contracts.Dto.Mapping
 {
     public class MappingProfile : Profile
     {

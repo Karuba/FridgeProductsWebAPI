@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Domain.Repositories;
+using FridgeProducts.Domain.Interfaces.Repositories;
+using FridgeProducts.Infrastructure.Business;
 using Services.Abstractions;
 using System;
 

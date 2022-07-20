@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
+﻿using FridgeProducts.Domain.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 
-namespace Persistence.Configurations
+namespace FridgeProducts.Infrastructure.Data.Configurations
 {
     public class FridgeModelConfiguration : IEntityTypeConfiguration<FridgeModel>
     {

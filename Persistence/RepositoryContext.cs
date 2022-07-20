@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
+﻿using FridgeProducts.Domain.Core.Entities;
+using FridgeProducts.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
-using Persistence.Configurations;
 
-namespace Persistence
+namespace FridgeProducts.Infrastructure.Data
 {
     public class RepositoryContext : DbContext
     {

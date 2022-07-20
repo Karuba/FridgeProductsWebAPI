@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Exceptions
+namespace FridgeProducts.Domain.Interfaces.Exceptions
 {
     public class NotFoundException : Exception
     {

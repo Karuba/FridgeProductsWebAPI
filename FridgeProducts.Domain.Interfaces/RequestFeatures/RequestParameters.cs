@@ -1,4 +1,4 @@
-﻿namespace Domain.RequestFeatures
+﻿namespace FridgeProducts.Domain.Interfaces.RequestFeatures
 {
     public abstract class RequestParameters
     {

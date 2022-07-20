@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Domain.Repositories
+namespace FridgeProducts.Domain.Interfaces.Repositories
 {
     public interface IRepositoryBase<T>
     {

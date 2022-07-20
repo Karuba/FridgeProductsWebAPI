@@ -10,8 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\Services.Abstractions\Services.Abstractions.csproj" />
+    <ProjectReference Include="..\Domain\FridgeProducts.Domain.Core.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Domain.Interfaces\FridgeProducts.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\Services.Abstractions\FridgeProducts.Services.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

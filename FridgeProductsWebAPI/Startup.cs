@@ -6,11 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Services.Abstractions;
-using AutoMapper;
-using System;
 using System.Reflection.Metadata;
-using Contracts.Mapping;
+using FridgeProducts.Contracts.Dto.Mapping;
 
 namespace FridgeProductsWebAPI
 {
@@ -23,7 +20,7 @@ namespace FridgeProductsWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
-                .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly);
+                .AddApplicationPart(typeof(AssemblyReference).Assembly);
 
             services.AddSwaggerGen(c =>
             {

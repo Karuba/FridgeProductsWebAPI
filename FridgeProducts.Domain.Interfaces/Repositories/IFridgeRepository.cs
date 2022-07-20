@@ -1,12 +1,10 @@
-﻿using Domain.Entities;
-using Domain.RequestFeatures;
+﻿using FridgeProducts.Domain.Core.Entities;
+using FridgeProducts.Domain.Interfaces.RequestFeatures;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Repositories
+namespace FridgeProducts.Domain.Interfaces.Repositories
 {
     public interface IFridgeRepository
     {

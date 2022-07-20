@@ -1,16 +1,14 @@
 ﻿using AutoMapper;
-using Contracts;
-using Domain.Entities;
-using Domain.Exceptions;
-using Domain.Repositories;
-using Domain.RequestFeatures;
-using Mapster;
+using FridgeProducts.Contracts.Dto;
+using FridgeProducts.Domain.Interfaces.Exceptions;
+using FridgeProducts.Domain.Interfaces.Repositories;
+using FridgeProducts.Domain.Interfaces.RequestFeatures;
 using Services.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Services
+namespace FridgeProducts.Infrastructure.Business
 {
     internal sealed class FridgeService : IFridgeService
     {
@@ -25,23 +23,6 @@ namespace Services
 
         public async Task<IEnumerable<FridgeDTO>> GetFridgesAsync(FridgeParameters fridgeParameters)
         {
-            //_version with Mapster_
-            
-            /*
-            var fridges = await _repository.Fridge.GetFridgesAsync(fridgeParameters);
-            var fridgesDto = fridges.Adapt<IEnumerable<FridgeDTO>>();
-            foreach (var fridge in fridgesDto)
-            {
-                var fridgeModel = await _repository.FridgeModel.GetFridgeModel(fridge.FridgeModelId);
-                var temp = fridgeModel.Adapt<FridgeModelDTO>();
-                fridge.FridgeModel.Year = temp.Year;
-                fridge.FridgeModel.Name = temp.Name;
-            }
-            return fridgesDto;
-            */
-
-            //_version with AutoMapper_
-
             var fridges = _mapper.Map<IEnumerable<FridgeDTO>>(await _repository.Fridge.GetFridgesAsync(fridgeParameters));
             foreach (var fridge in fridges)
             {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Contracts
+namespace FridgeProducts.Contracts.Dto
 {
     public class FridgeProductForCreationDTO
     {

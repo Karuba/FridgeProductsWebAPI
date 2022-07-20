@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Contracts;
-using Domain.Entities;
-using Domain.Exceptions;
-using Domain.Repositories;
+using FridgeProducts.Contracts.Dto;
+using FridgeProducts.Domain.Core.Entities;
+using FridgeProducts.Domain.Interfaces.Exceptions;
+using FridgeProducts.Domain.Interfaces.Repositories;
 using Services.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,6 @@ namespace Services
         {
             var products = await _repository.Product.GetAllProductsAsync();
             var productsDto = _mapper.Map<IEnumerable<ProductDTO>>(products);
-            //var productsDto = products.Adapt<IEnumerable<ProductDTO>>();
             return productsDto;
         }
 
@@ -36,7 +35,6 @@ namespace Services
             var fridgeProducts = await _repository.FridgeProduct.GetFridgeProductsForFridgeAsync(fridgeId);
             var products = await _repository.Product.GetProductsAsync(fridgeProducts.Select(x => x.ProductId));
             var productsDto = _mapper.Map<IEnumerable<ProductDTO>>(products);
-            //var productsDto = products.Adapt<IEnumerable<ProductDTO>>();
 
             var fridgeProductsDto = new List<FridgeProductDTO>();
 
@@ -70,7 +68,6 @@ namespace Services
             }
 
             var fridgeProductEntity = _mapper.Map<FridgeProduct>(fridgeProduct);
-            //var fridgeProductEntity = fridgeProduct.Adapt<FridgeProduct>();
 
             fridgeProductEntity.FridgeId = fridgeId;
 
@@ -81,7 +78,6 @@ namespace Services
             if (dbFridgeProduct is not null)
             {
                 dbFridgeProduct.Quantity += fridgeProductEntity.Quantity;
-                //fridgeProductDto = _mapper.Map<FridgeProductDTO>(dbFridgeProduct);
             }
             else
             {
@@ -97,7 +93,6 @@ namespace Services
             fridgeProductDto.Name = dbProduct.Name;
             fridgeProductDto.DefaultQuantity = dbProduct.DefaultQuantity;
 
-            //var fridgeProductDto = fridgeProductEntity.Adapt<FridgeProductDTO>();
             return fridgeProductDto;
         }
 

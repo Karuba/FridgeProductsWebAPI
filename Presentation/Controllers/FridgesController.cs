@@ -1,11 +1,11 @@
-﻿using Contracts;
-using Domain.RequestFeatures;
+﻿using FridgeProducts.Contracts.Dto;
+using FridgeProducts.Domain.Interfaces.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstractions;
 using System;
 using System.Threading.Tasks;
 
-namespace FridgeProductsWebAPI.Controllers
+namespace FridgeProducts.Presentation.Controllers.Controllers
 {
     [Route("api/fridges")]
     [ApiController]

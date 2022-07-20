@@ -1,5 +1,5 @@
 ﻿
-namespace Contracts
+namespace FridgeProducts.Contracts.Dto
 {
     public class FridgeModelDTO
     {

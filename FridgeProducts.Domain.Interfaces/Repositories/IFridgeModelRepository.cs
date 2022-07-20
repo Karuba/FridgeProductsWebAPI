@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
+﻿using FridgeProducts.Domain.Core.Entities;
 using System;
 using System.Threading.Tasks;
 
-namespace Domain.Repositories
+namespace FridgeProducts.Domain.Interfaces.Repositories
 {
     public interface IFridgeModelRepository
     {

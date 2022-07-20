@@ -1,13 +1,14 @@
-﻿using Domain.Entities;
-using Domain.Repositories;
-using Domain.RequestFeatures;
+﻿using FridgeProducts.Domain.Core.Entities;
+using FridgeProducts.Domain.Interfaces.Repositories;
+using FridgeProducts.Domain.Interfaces.RequestFeatures;
+using FridgeProducts.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Persistence.Repositories
+namespace FridgeProducts.Infrastructure.Data.Repositories
 {
     public class FridgeRepository : RepositoryBase<Fridge>, IFridgeRepository
     {

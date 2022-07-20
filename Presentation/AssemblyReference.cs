@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Presentation
+namespace FridgeProducts.Presentation.Controllers
 {
     public static class AssemblyReference
     {

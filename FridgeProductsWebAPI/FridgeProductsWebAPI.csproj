@@ -18,9 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Persistence\Persistence.csproj" />
-    <ProjectReference Include="..\Presentation\Presentation.csproj" />
-    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Persistence\FridgeProducts.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\Presentation\FridgeProducts.Presentation.Controllers.csproj" />
+    <ProjectReference Include="..\Services\FridgeProducts.Infrastructure.Business.csproj" />
   </ItemGroup>
 
 </Project>

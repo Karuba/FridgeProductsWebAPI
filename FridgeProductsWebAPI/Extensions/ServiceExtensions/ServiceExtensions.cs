@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
-using Domain.Repositories;
-using Persistence.Repositories;
-using Persistence;
 using FridgeProductsWebAPI.Middleware;
 using Services.Abstractions;
+using FridgeProducts.Infrastructure.Data;
+using FridgeProducts.Domain.Interfaces.Repositories;
+using FridgeProducts.Infrastructure.Data.Repositories;
 
 namespace FridgeProductsWebAPI.Extensions.ServiceExtensions
 {

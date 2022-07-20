@@ -1,9 +1,7 @@
-﻿using Contracts;
-using Domain.RequestFeatures;
+﻿using FridgeProducts.Contracts.Dto;
+using FridgeProducts.Domain.Interfaces.RequestFeatures;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Services.Abstractions

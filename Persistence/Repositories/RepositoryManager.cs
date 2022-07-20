@@ -1,7 +1,7 @@
-﻿using Domain.Repositories;
+﻿using FridgeProducts.Domain.Interfaces.Repositories;
 using System.Threading.Tasks;
 
-namespace Persistence.Repositories
+namespace FridgeProducts.Infrastructure.Data.Repositories
 {
     public class RepositoryManager : IRepositoryManager
     {

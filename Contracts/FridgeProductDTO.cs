@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Contracts
+namespace FridgeProducts.Contracts.Dto
 {
     public class FridgeProductDTO
     {

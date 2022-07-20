@@ -1,10 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Persistence;
-using System;
-using System.Threading.Tasks;
 
 namespace FridgeProductsWebAPI
 {
