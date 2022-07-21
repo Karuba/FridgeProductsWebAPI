@@ -7,7 +7,7 @@ namespace FridgeProducts.Domain.Interfaces.Repositories
 {
     public interface IFridgeProductRepository
     {
-        IEnumerable<Product> GetProductsForFridge(Guid fridgeId, bool trackChanges = false);
+        Task<IEnumerable<Product>> GetProductsForFridgeAsync(Guid fridgeId, bool trackChanges = false);
         void AddProductToFridge(FridgeProduct fridgeProduct);
         void DeleteProductFromFridge(FridgeProduct fridgeProduct);
         Task<FridgeProduct> GetFridgeWithProductAsync(Guid fridgeId, bool trackChanges = false);

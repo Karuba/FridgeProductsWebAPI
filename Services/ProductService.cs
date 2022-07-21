@@ -33,23 +33,12 @@ namespace Services
         public async Task<IEnumerable<FridgeProductDTO>> GetProductsForFridgeAsync(Guid fridgeId)
         {
             var fridgeProducts = await _repository.FridgeProduct.GetFridgeProductsForFridgeAsync(fridgeId);
-            var products = await _repository.Product.GetProductsAsync(fridgeProducts.Select(x => x.ProductId));
-            var productsDto = _mapper.Map<IEnumerable<ProductDTO>>(products);
-
-            var fridgeProductsDto = new List<FridgeProductDTO>();
-
             foreach (var item in fridgeProducts)
             {
-                fridgeProductsDto.Add(new FridgeProductDTO
-                {
-                    Id = item.Id,
-                    Quantity = item.Quantity,
-                    Name = productsDto.Where(pr => pr.Id.Equals(item.ProductId)).FirstOrDefault()?.Name,
-                    DefaultQuantity = productsDto.Where(pr => pr.Id.Equals(item.ProductId)).FirstOrDefault()?.DefaultQuantity
-                });
+                item.Product = await _repository.Product.GetProductAsync(item.ProductId);
             }
 
-            return fridgeProductsDto;
+            return _mapper.Map<IEnumerable<FridgeProductDTO>>(fridgeProducts);
         }
 
         public async Task<FridgeProductDTO> AddProductToFridgeAsync(Guid fridgeId, FridgeProductForCreationDTO fridgeProduct)
@@ -87,13 +76,10 @@ namespace Services
             await _repository.SaveAsync();
 
             dbFridgeProduct = await _repository.FridgeProduct
-                    .GetFridgeProductAsync(fridgeProductEntity.FridgeId, fridgeProductEntity.ProductId, trackChanges: true);
-            var fridgeProductDto = _mapper.Map<FridgeProductDTO>(dbFridgeProduct);
-            var dbProduct = await _repository.Product.GetProductAsync(dbFridgeProduct.ProductId);
-            fridgeProductDto.Name = dbProduct.Name;
-            fridgeProductDto.DefaultQuantity = dbProduct.DefaultQuantity;
+                    .GetFridgeProductAsync(fridgeProductEntity.FridgeId, fridgeProductEntity.ProductId);
+            dbFridgeProduct.Product = await _repository.Product.GetProductAsync(fridgeProductEntity.FridgeId);
 
-            return fridgeProductDto;
+            return _mapper.Map<FridgeProductDTO>(dbFridgeProduct);
         }
 
         public async Task DeleteProductForFridgeAsync(Guid fridgeId, Guid productId)
@@ -107,7 +93,7 @@ namespace Services
             {
                 throw new NotFoundException($"Fridge with id: {fridgeId} is empty.");
             }
-            if (_repository.FridgeProduct.GetProductsForFridge(productId) is null)
+            if (_repository.FridgeProduct.GetProductsForFridgeAsync(productId) is null)
             {
                 throw new NotFoundException($"Product with id: {productId} doesn't exist in this fridge.");
             }
@@ -118,12 +104,14 @@ namespace Services
         {
             var fridgeProducts = await _repository.FridgeProduct.GetFridgePtoductsWithZeroQuantityAsync();
 
+            var fridgeProductsDto = _mapper.Map<IEnumerable<FridgeProductDTO>>(fridgeProducts);
+
             foreach (var item in fridgeProducts)
             {
 
                 item.Quantity = (await _repository.Product.GetProductAsync(item.ProductId))?.DefaultQuantity ?? 0;
-                
-                _repository.FridgeProduct.AddProductToFridge(item);
+                item.Product = await _repository.Product.GetProductAsync(item.ProductId);
+
             }
 
             await _repository.SaveAsync();

@@ -35,14 +35,14 @@ namespace FridgeProducts.Infrastructure.Data.Repositories
         public async Task<FridgeProduct> GetFridgeWithProductAsync(Guid fridgeId, bool trackChanges = false) =>
             await FindByCondition(opt => opt.FridgeId.Equals(fridgeId), trackChanges).SingleOrDefaultAsync();
 
-        public IEnumerable<Product> GetProductsForFridge(Guid fridgeId, bool trackChanges = false) =>
-            FindByCondition(opt =>
+        public async Task<IEnumerable<Product>> GetProductsForFridgeAsync(Guid fridgeId, bool trackChanges = false) =>
+            await FindByCondition(opt =>
             opt.FridgeId.Equals(fridgeId), trackChanges)
             .Select(e =>
             _repositoryContext.Products
             .FirstOrDefault(o =>
             o.Id.Equals(e.ProductId)))
-            .ToList();
+            .ToListAsync();
 
         
     }

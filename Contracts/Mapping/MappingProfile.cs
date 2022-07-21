@@ -9,7 +9,10 @@ namespace FridgeProducts.Contracts.Dto.Mapping
         {
             CreateMap<Product, ProductDTO>();
             CreateMap<Fridge, FridgeDTO>();
-            CreateMap<FridgeProduct, FridgeProductDTO>();
+            CreateMap<FridgeProduct, FridgeProductDTO>()
+                .ForMember(dest => dest.DefaultQuantity, opt => opt.MapFrom(src => src.Product.DefaultQuantity))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Product.Name));
+
             CreateMap<FridgeProductDTO, ProductDTO>();
             CreateMap<FridgeModel, FridgeModelDTO>();
             CreateMap<FridgeProductForCreationDTO, FridgeProduct>();
