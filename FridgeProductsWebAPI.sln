@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProductsWebAPI", "FridgeProductsWebAPI\FridgeProductsWebAPI.csproj", "{0C75FCAC-CA69-444F-9A3E-6972508DDFD4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiTests", "WebApiTests\WebApiTests.csproj", "{E73C6B56-7B67-44F2-90EB-64BC3E302E30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Tests", "WebApiTests\FridgeProducts.Tests.csproj", "{E73C6B56-7B67-44F2-90EB-64BC3E302E30}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C013ED86-1B6D-4AE9-8834-648CA5FF26FB}"
 EndProject
@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Contracts.Dt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Domain.Interfaces", "FridgeProducts.Domain.Interfaces\FridgeProducts.Domain.Interfaces.csproj", "{07BD51D5-064A-49E2-8325-A66237B74F68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProducts.Infrastructure.Migration", "FridgeProducts.Infrastructure.Migration\FridgeProducts.Infrastructure.Migration.csproj", "{40A77CCA-72D3-49BC-BD1E-F9D9E82FF723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Infrastructure.Migration", "FridgeProducts.Infrastructure.Migration\FridgeProducts.Infrastructure.Migration.csproj", "{40A77CCA-72D3-49BC-BD1E-F9D9E82FF723}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{307A7AE4-7E2C-440A-8B26-CFB4C6CE4FBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProducts.Test.Metanit", "FridgeProducts.Test.Metanit\FridgeProducts.Test.Metanit.csproj", "{578F4FE9-B2C2-46EC-8C0E-F6DCE61A19C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{40A77CCA-72D3-49BC-BD1E-F9D9E82FF723}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40A77CCA-72D3-49BC-BD1E-F9D9E82FF723}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40A77CCA-72D3-49BC-BD1E-F9D9E82FF723}.Release|Any CPU.Build.0 = Release|Any CPU
+		{578F4FE9-B2C2-46EC-8C0E-F6DCE61A19C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{578F4FE9-B2C2-46EC-8C0E-F6DCE61A19C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{578F4FE9-B2C2-46EC-8C0E-F6DCE61A19C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{578F4FE9-B2C2-46EC-8C0E-F6DCE61A19C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
 ﻿using Moq;
 using Services.Abstractions;
 
-namespace WebApiTests.Mocks
+namespace FridgeProducts.Tests.Mocks
 {
     public class FakeServiceManager
     {
