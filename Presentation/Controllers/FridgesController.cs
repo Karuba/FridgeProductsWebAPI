@@ -25,10 +25,8 @@ namespace FridgeProducts.Presentation.Controllers.Controllers
         [HttpPut("{fridgeId}")]
         public async Task<IActionResult> UpdateFridgeAsync(Guid fridgeId, [FromBody] FridgeForUpdatingDTO fridge)
         {
-            await _serviceManager.fridgeService.UpdateFridgeAsync(fridgeId, fridge);
-
-            return NoContent();
+            var fridgeDto = await _serviceManager.fridgeService.UpdateFridgeAsync(fridgeId, fridge);
+            return Ok(fridgeDto);
         }
-
     }
 }

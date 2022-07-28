@@ -43,7 +43,7 @@ namespace FridgeProducts.Presentation.Controllers.Controllers
         {
             await _serviceManager.productService.DeleteProductForFridgeAsync(fridgeId, productId);
 
-            return NoContent();
+            return Ok();
         }
         [Route("/api/products")]
         [HttpPut]

@@ -26,13 +26,18 @@ namespace FridgeProducts.Infrastructure.Business
             var fridges = _mapper.Map<IEnumerable<FridgeDTO>>(await _repository.Fridge.GetFridgesAsync(fridgeParameters));
             foreach (var fridge in fridges)
             {
-                var fawe = await _repository.FridgeModel.GetFridgeModel(fridge.FridgeModelId);
-                fridge.FridgeModel = _mapper.Map<FridgeModelDTO>(fawe);
+                fridge.FridgeModel = _mapper.Map<FridgeModelDTO>(await _repository.FridgeModel.GetFridgeModel(fridge.FridgeModelId));
             }
             return fridges;
         }
+        public async Task<FridgeDTO> GetFridgeAsync(Guid fridgeId)
+        {
+            var fridge = _mapper.Map<FridgeDTO>(await _repository.Fridge.GetFridgeAsync(fridgeId));
+            fridge.FridgeModel = _mapper.Map<FridgeModelDTO>(await _repository.FridgeModel.GetFridgeModel(fridge.FridgeModelId));
 
-        public async Task UpdateFridgeAsync(Guid fridgeId, FridgeForUpdatingDTO fridge)
+            return fridge;
+        }
+        public async Task<FridgeDTO> UpdateFridgeAsync(Guid fridgeId, FridgeForUpdatingDTO fridge)
         {
             if (fridge is null)
             {
@@ -46,6 +51,8 @@ namespace FridgeProducts.Infrastructure.Business
 
             _mapper.Map(fridge, fridgeEntity);
             await _repository.SaveAsync();
+
+            return await GetFridgeAsync(fridgeEntity.Id);
         }
 
     }

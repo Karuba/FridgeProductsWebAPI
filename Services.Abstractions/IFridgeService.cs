@@ -9,6 +9,7 @@ namespace Services.Abstractions
     public interface IFridgeService
     {
         public Task<IEnumerable<FridgeDTO>> GetFridgesAsync(FridgeParameters fridgeParameters);
-        public Task UpdateFridgeAsync(Guid fridgeId, FridgeForUpdatingDTO fridge);
+        public Task<FridgeDTO> GetFridgeAsync(Guid fridgeId);
+        public Task<FridgeDTO> UpdateFridgeAsync(Guid fridgeId, FridgeForUpdatingDTO fridge);
     }
 }

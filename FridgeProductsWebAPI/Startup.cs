@@ -32,7 +32,7 @@ namespace FridgeProductsWebAPI
             services.ConfigureIISIntegration();
 
             services.ConfigureServiceManager();
-            services.ConfigureSqlContext(Configuration);
+            services.ConfigurePostgreSqlContext(Configuration);
             services.ConfigureRepositoryManager();
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
             services.ConfigureExceptionHandlerMiddleware();

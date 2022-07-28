@@ -16,7 +16,7 @@ namespace FridgeProducts.Contracts.Dto.Mapping
             CreateMap<FridgeProductDTO, ProductDTO>();
             CreateMap<FridgeModel, FridgeModelDTO>();
             CreateMap<FridgeProductForCreationDTO, FridgeProduct>();
-            CreateMap<FridgeForUpdatingDTO, Fridge>();
+            CreateMap<FridgeForUpdatingDTO, Fridge>().ReverseMap();
         }
     }
 }

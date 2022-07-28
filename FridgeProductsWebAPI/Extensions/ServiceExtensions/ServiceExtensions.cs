@@ -28,11 +28,16 @@ namespace FridgeProductsWebAPI.Extensions.ServiceExtensions
             });
         public static void ConfigureServiceManager(this IServiceCollection services) =>
             services.AddScoped<IServiceManager, ServiceManager>(); 
-        public static void ConfigureSqlContext(this IServiceCollection services,
+        public static void ConfigureMsSqlContext(this IServiceCollection services,
             IConfiguration configuration) =>
                 services.AddDbContext<RepositoryContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("MsSQLConnection"), b =>
                         b.MigrationsAssembly("FridgeProducts.Infrastructure.Migration")));
+        public static void ConfigurePostgreSqlContext(this IServiceCollection services,
+            IConfiguration configuration) =>
+                services.AddDbContext<RepositoryContext>(options =>
+                    options.UseNpgsql(configuration.GetConnectionString("PostgreSQLConnection"), b =>
+                        b.MigrationsAssembly("FridgeProducts.Infrastructure.Migr.PostgreSQL")));
         public static void ConfigureRepositoryManager(this IServiceCollection services) =>
             services.AddScoped<IRepositoryManager, RepositoryManager>();
         public static void ConfigureExceptionHandlerMiddleware(this IServiceCollection services) =>

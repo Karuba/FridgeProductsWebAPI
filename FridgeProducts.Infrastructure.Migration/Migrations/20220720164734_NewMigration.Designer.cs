@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FridgeProducts.Infrastructure
+namespace FridgeProducts.Infrastructure.Migr.MsSQL
 {
     [DbContext(typeof(RepositoryContext))]
     [Migration("20220720164734_NewMigration")]
