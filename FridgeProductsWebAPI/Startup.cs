@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Reflection.Metadata;
 using FridgeProducts.Contracts.Dto.Mapping;
+using FridgeProducts.Infrastructure.Migr.MsSQL;
 
 namespace FridgeProductsWebAPI
 {
@@ -30,9 +31,9 @@ namespace FridgeProductsWebAPI
 
             services.ConfigureCors();
             services.ConfigureIISIntegration();
-
             services.ConfigureServiceManager();
-            services.ConfigurePostgreSqlContext(Configuration);
+
+            ServiceExtensions.ConfigureDatabaseContext(services, Configuration);
             services.ConfigureRepositoryManager();
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
             services.ConfigureExceptionHandlerMiddleware();
