@@ -9,31 +9,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C013ED86-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{32EC964D-D4F5-493C-ABE5-480C3DF53F45}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Domain.Core", "Domain\FridgeProducts.Domain.Core.csproj", "{908A6FD7-CB84-4102-80A6-4CDEDF81F1B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Domain.Core", "FridgeProducts.Domain.Core\FridgeProducts.Domain.Core.csproj", "{908A6FD7-CB84-4102-80A6-4CDEDF81F1B8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Infrastructure.Business", "Services\FridgeProducts.Infrastructure.Business.csproj", "{D67EC267-3CE3-4615-9C96-99B626AC5105}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Infrastructure.Business", "FridgeProducts.Infrastructure.Business\FridgeProducts.Infrastructure.Business.csproj", "{D67EC267-3CE3-4615-9C96-99B626AC5105}"
 	ProjectSection(ProjectDependencies) = postProject
 		{76669BF1-3204-463A-A148-BCD4ECE5DB76} = {76669BF1-3204-463A-A148-BCD4ECE5DB76}
 		{908A6FD7-CB84-4102-80A6-4CDEDF81F1B8} = {908A6FD7-CB84-4102-80A6-4CDEDF81F1B8}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Services.Interfaces", "Services.Abstractions\FridgeProducts.Services.Interfaces.csproj", "{76669BF1-3204-463A-A148-BCD4ECE5DB76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Services.Interfaces", "FridgeProducts.Services.Interfaces\FridgeProducts.Services.Interfaces.csproj", "{76669BF1-3204-463A-A148-BCD4ECE5DB76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Infrastructure.Data", "Persistence\FridgeProducts.Infrastructure.Data.csproj", "{97BE0C93-F9A4-4873-ACF9-D197006298EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Infrastructure.Data", "FridgeProducts.Infrastructure.Data\FridgeProducts.Infrastructure.Data.csproj", "{97BE0C93-F9A4-4873-ACF9-D197006298EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Presentation.Controllers", "Presentation\FridgeProducts.Presentation.Controllers.csproj", "{18809B54-74FD-4B1A-AB52-FA3BF36A5E5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Presentation.Controllers", "FridgeProducts.Presentation.Controllers\FridgeProducts.Presentation.Controllers.csproj", "{18809B54-74FD-4B1A-AB52-FA3BF36A5E5B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Contracts.Dto", "Contracts\FridgeProducts.Contracts.Dto.csproj", "{672E5CF6-6A17-47C9-B3F8-18F062BDB849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Contracts.Dto", "FridgeProducts.Contracts.Dto\FridgeProducts.Contracts.Dto.csproj", "{672E5CF6-6A17-47C9-B3F8-18F062BDB849}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Domain.Interfaces", "FridgeProducts.Domain.Interfaces\FridgeProducts.Domain.Interfaces.csproj", "{07BD51D5-064A-49E2-8325-A66237B74F68}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Infrastructure.Migr.MsSQL", "FridgeProducts.Infrastructure.Migration\FridgeProducts.Infrastructure.Migr.MsSQL.csproj", "{40A77CCA-72D3-49BC-BD1E-F9D9E82FF723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridgeProducts.Infrastructure.Migr.MsSQL", "FridgeProducts.Infrastructure.Migr.MsSQL\FridgeProducts.Infrastructure.Migr.MsSQL.csproj", "{40A77CCA-72D3-49BC-BD1E-F9D9E82FF723}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{307A7AE4-7E2C-440A-8B26-CFB4C6CE4FBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProducts.Test", "FridgeProducts.Test.Metanit\FridgeProducts.Test.csproj", "{578F4FE9-B2C2-46EC-8C0E-F6DCE61A19C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProducts.Test", "FridgeProducts.Test\FridgeProducts.Test.csproj", "{578F4FE9-B2C2-46EC-8C0E-F6DCE61A19C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProducts.Infrastructure.Migr.PostgreSQL", "FridgeProducts.Infrastructure.Migration.PostgreSQL\FridgeProducts.Infrastructure.Migr.PostgreSQL.csproj", "{C9B1562C-247F-4E58-819B-453C081310C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridgeProducts.Infrastructure.Migr.PostgreSQL", "FridgeProducts.Infrastructure.Migr.PostgreSQL\FridgeProducts.Infrastructure.Migr.PostgreSQL.csproj", "{C9B1562C-247F-4E58-819B-453C081310C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
