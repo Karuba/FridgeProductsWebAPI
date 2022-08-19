@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\FridgeProducts.Contracts.Dto.csproj" />
-    <ProjectReference Include="..\Domain\FridgeProducts.Domain.Core.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Contracts.Dto\FridgeProducts.Contracts.Dto.csproj" />
     <ProjectReference Include="..\FridgeProducts.Domain.Interfaces\FridgeProducts.Domain.Interfaces.csproj" />
   </ItemGroup>
 

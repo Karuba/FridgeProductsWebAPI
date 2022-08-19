@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Persistence\FridgeProducts.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Infrastructure.Data\FridgeProducts.Infrastructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

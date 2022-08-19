@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Services.Abstractions\FridgeProducts.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Services.Interfaces\FridgeProducts.Services.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

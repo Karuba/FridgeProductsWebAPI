@@ -19,12 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FridgeProducts.Infrastructure.Migration.PostgreSQL\FridgeProducts.Infrastructure.Migr.PostgreSQL.csproj" />
-    <ProjectReference Include="..\FridgeProducts.Infrastructure.Migration\FridgeProducts.Infrastructure.Migr.MsSQL.csproj" />
-    <ProjectReference Include="..\Persistence\FridgeProducts.Infrastructure.Data.csproj" />
-    <ProjectReference Include="..\Presentation\FridgeProducts.Presentation.Controllers.csproj" />
-    <ProjectReference Include="..\Services\FridgeProducts.Infrastructure.Business.csproj" />
-	  <ProjectReference Include="..\Services\FridgeProducts.Infrastructure.Business.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Infrastructure.Business\FridgeProducts.Infrastructure.Business.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Infrastructure.Data\FridgeProducts.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Infrastructure.Migr.MsSQL\FridgeProducts.Infrastructure.Migr.MsSQL.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Infrastructure.Migr.PostgreSQL\FridgeProducts.Infrastructure.Migr.PostgreSQL.csproj" />
+    <ProjectReference Include="..\FridgeProducts.Presentation.Controllers\FridgeProducts.Presentation.Controllers.csproj" />
   </ItemGroup>
 
 </Project>
